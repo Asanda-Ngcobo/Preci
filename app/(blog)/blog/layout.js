@@ -1,7 +1,8 @@
 import { DM_Sans, Inter } from "next/font/google";
 import "@/app/globals.css";
+import BlogNav from "@/app/_components/BlogNav";
 
-import { MenuProvider } from "@/app/providers/MenuProvider";
+
 
 
 const Primaryfont = Inter({
@@ -15,18 +16,24 @@ const HeadingsFont = DM_Sans({
 });
 
 
-export default function RootLayout({ children }) {
-  return (
+export default async function RootLayout({ children }) {
    
 
-      <div
+  return (
+   
+  <html lang="en">
+         <body
         className={`${Primaryfont.variable} ${HeadingsFont.variable} antialiased`}
       >
-    
-   
+       <BlogNav/>
          {children}
+    
+        
   
-      </div>
+      </body>
+
+  </html>
+ 
  
     
       

@@ -46,16 +46,26 @@ export async function getSummaries(userId) {
   return data;
 }
 
-export async function getBlogs() {
-   const supabase = await createClient()
-  const { data, error } = await supabase
+export async function getBlogs(category) {
+  const supabase = await createClient();
+
+  let query = supabase
     .from("blogs")
     .select("*")
     .order("created_at", { ascending: false });
 
-  if (error) throw new Error("Could not fetch blogs");
+  if (category) {
+    query = query.eq("type", category);
+  }
 
-  return data;
+  const { data, error } = await query;
+
+  if (error) {
+    console.error("Supabase error fetching blogs:", error.message);
+    throw new Error(`Could not fetch blogs: ${error.message}`);
+  }
+
+  return data ?? [];
 }
 
 export async function getBlogBySlug(slug) {

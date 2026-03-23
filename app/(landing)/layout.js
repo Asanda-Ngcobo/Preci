@@ -5,7 +5,7 @@ import { MenuProvider } from "../providers/MenuProvider";
 import Nav from "../_components/_auth_components/AuthNav";
 import MeetPreci from "../_components/_auth_components/MeetPreci";
 import Footer from "../_components/Footer";
-import Script from "next/script";
+
 
 
 
@@ -47,10 +47,7 @@ export default function RootLayout({ children }) {
    <MeetPreci/>
      <Footer/>
         </MenuProvider>
-          <Script
-          src="https://js.paystack.co/v1/inline.js"
-          strategy="afterInteractive"
-        />
+       
       </body>
       
     </html>

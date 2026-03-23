@@ -35,7 +35,7 @@ function Profile({ data }) {
     startTransition(async () => {
       const supabase = createClient()
       await supabase.auth.signOut()
-      router.push('/auth/login')
+      router.push('/')
     })
   }
 

@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 const contract_type = [
   { id: 1, type: "Phone Contract." },
   { id: 2, type: "Car Finance." },
-  { id: 3, type: "Personal loan." },
-  { id: 4, type: "Insurance Policy." },
+  { id: 3, type: "Car Tracker." },
+  { id: 4, type: "Home Loan." },
   { id: 5, type: "Lease Agreement." },
-  { id: 6, type: "Gym Membership." },
+  { id: 6, type: "Personal loan." },
+  { id: 7, type: "Insurance Policy." },
+  { id: 8, type: "Gym Membership." },
 ];
 
 export default function ContractTypeRotator() {

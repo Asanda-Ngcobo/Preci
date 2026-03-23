@@ -2,6 +2,7 @@ import { DM_Sans, Inter } from "next/font/google";
 import "@/app/globals.css";
 
 import { MenuProvider } from "@/app/providers/MenuProvider";
+import Script from "next/script";
 
 
 const Primaryfont = Inter({
@@ -26,6 +27,10 @@ export default function RootLayout({ children }) {
         <MenuProvider>
          {children}
         </MenuProvider>
+           <Script
+          src="https://js.paystack.co/v1/inline.js"
+          strategy="afterInteractive"
+        />
       </body>
 
   </html>

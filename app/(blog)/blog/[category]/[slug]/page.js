@@ -1,6 +1,7 @@
 import BlogBody from "@/app/_components/BlogBody";
+import CallToAction from "@/app/_components/CallToAction";
 import { getBlogBySlug } from "@/app/_lib/supabase/apis";
-import Link from "next/link";
+
 
 
 
@@ -53,7 +54,8 @@ export default async function Page({ params }) {
   };
 
   return (
-    <article className="w-[50%] ml-[15%] mt-10">
+    <article className="w-[60%]
+     ml-[6%] mt-10">
       
       {/* JSON-LD Structured Data */}
       <script
@@ -75,29 +77,7 @@ export default async function Page({ params }) {
         <BlogBody 
         body={blog.body}/>
       </div>
-
-      <div className="w-[30%]
-      fixed right-5
-      z-10 bottom-4 h-fit p-6 rounded-2xl text-xl shadow-2xl flex flex-col gap-3 ">
-        {blog.cta}
-        <div className="w-full flex gap-3">
-<button className="p-2 rounded-lg w-1/2 h-fit
-        text-white bg-(--accent-primary)">
-          <Link href='/auth/login'>
-           Upload
-          </Link>
-         
-        </button>
-         <button className="p-2 rounded-lg w-1/2 h-fit
-        text-white bg-black">
-         <Link href='/auth/login#meet-preci'>
-           Learn More
-          </Link>
-        </button>
-        </div>
-        
-
-      </div>
+     <CallToAction blog={blog}/>
 
     </article>
   );

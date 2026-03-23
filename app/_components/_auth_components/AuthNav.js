@@ -23,15 +23,15 @@ function Nav() {
                    Préci
                 </h2>
     
-            {/* <div className="flex md:hidden">
-    {menuOpen ? <X  onClick={()=> toggleMenu()}/> 
-    :   <Menu 
-            onClick={()=> toggleMenu()}/>}
-            </div> */}
+         
           
- <ul className="flex gap-4 text-sm">
-  <li><Link href='#meet-preci'>Meet Préci</Link></li>
-   <li><Link href='/blog'>Blog</Link></li>
+ <ul className="flex gap-4 text-sm cursor-pointer">
+  <li className="hover:bg-(--accent-secondary) w-fit h-fit 
+  p-2 rounded-2xl"><Link href='#meet-preci'>Meet Préci</Link></li>
+   <li className="hover:bg-(--accent-secondary) w-fit h-fit 
+  p-2 rounded-2xl
+  active:bg-(--accent-primary) 
+  "><Link href='/blog'>Blog</Link></li>
  
  </ul>
             

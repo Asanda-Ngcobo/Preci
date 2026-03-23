@@ -141,13 +141,13 @@ async function handleProcess() {
    items-center  z-20
    bg-white p-4 text-sm text-gray-700">
     <p className={status === "reading" ? "font-medium" : ""}>
-      {status !== "idle" && "✓ Document uploaded"}
+      {status !== "idle" && "1. Document uploaded"}
     </p>
     <p className={status === "summarizing" ? "font-medium text-(--accent-secondary)" : ""}>
-      Understanding the contract
+      2. Understanding the contract
     </p>
     <p className={status === "saving" ? "font-medium text-(--accent-secondary)" : ""}>
-      Preparing your summary
+      3. Preparing your summary
     </p>
   </div>
 )}

@@ -9,7 +9,14 @@ export default async function UserSummaryPage({params}) {
     error: authError,
   } = await supabase.auth.getUser();
 
-  const {email} = user;
+
+  const {data: profile} = await supabase
+  .from('profiles')
+  .select('referral_discount_used')
+  .eq('id', user.id)
+  .single()
+
+ 
     const {summaryId} = await params;
     const summary = await getSummary(summaryId)
     if(!summary) return <div>Summary not found</div>
@@ -20,7 +27,7 @@ export default async function UserSummaryPage({params}) {
             
             <SummaryPreview 
             summary={summary}
-            email={email}/>
+            profile={profile}/>
             
         </div>
     )
