@@ -32,8 +32,8 @@ function SideBar({ data, userSummaries }) {
           </div>
         </div>
 
-        <ul className="mt-10 flex flex-col gap-2">
-          <li>
+        <ul className="mt-15 flex flex-col gap-2">
+          {/* <li>
             <button
               type="button"
               onClick={showSearch}
@@ -42,7 +42,7 @@ function SideBar({ data, userSummaries }) {
               <Search />
               <span>Search Summary</span>
             </button>
-          </li>
+          </li> */}
           <li>
             <button
               type="button"

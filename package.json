@@ -9,9 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^3.0.48",
     "@deemlol/next-icons": "^0.1.9",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.89.0",
+    "ai": "^6.0.140",
     "llama-parse": "^0.1.0",
     "next": "^16.1.6",
     "openai": "^6.16.0",
@@ -25,8 +27,8 @@
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
     "baseline-browser-mapping": "^2.9.19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.10",
+    "eslint": "^10.1.0",
+    "eslint-config-next": "^0.2.4",
     "tailwindcss": "^4"
   }
 }

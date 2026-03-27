@@ -3,9 +3,10 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
-import SignUpButton from '@/app/(account)/_ui/MainAppButton'
-import { createClient } from '@/app/_utils/supabase/client'
+
+
 import { Eye, EyeOff } from '@deemlol/next-icons'
+import { createClient } from '@/app/_lib/supabase/client'
 
 export function UpdatePasswordForm() {
   const [password, setPassword] = useState('')
@@ -31,7 +32,7 @@ export function UpdatePasswordForm() {
     try {
       const { error } = await supabase.auth.updateUser({ password })
       if (error) throw error
-      router.push('/account')
+      router.push('/users')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred')
     } finally {

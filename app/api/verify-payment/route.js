@@ -1,5 +1,5 @@
-import { revalidatePath } from "next/cache";
-import { createClient } from "@/_lib/supabase/server";
+import { createClient } from "@/app/_lib/supabase/server";
+
 
 export async function POST(req) {
   try {

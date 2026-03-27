@@ -1,12 +1,18 @@
+import { streamText } from 'ai'
 import { openai } from '@ai-sdk/openai'
-import { StreamingTextResponse, streamText } from 'ai'
- 
+
 export async function POST(req) {
   const { messages } = await req.json()
+
   const result = await streamText({
-    model: openai('gpt-4-turbo'),
+    model: openai('gpt-4o'),
     messages,
   })
- 
-  return new StreamingTextResponse(result.toAIStream())
+
+  // Instead of StreamingTextResponse, just return a standard stream
+  return new Response(result.body, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+    },
+  })
 }
