@@ -56,7 +56,7 @@ function UploadOptions() {
             Upload a contract
           </p>
           <p className="text-xs text-gray-500">
-            Drag & drop or click to upload (PDF or image)
+            Click to upload PDF file
           </p>
         </div>
 

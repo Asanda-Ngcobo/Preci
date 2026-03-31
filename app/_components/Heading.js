@@ -3,9 +3,7 @@ async function Heading({data}) {
 
 
   const { full_name, name } = data.user_metadata;
-  
 
- 
   const Name = full_name || name
     ? full_name || name
         .split('@')[0]

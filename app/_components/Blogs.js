@@ -1,4 +1,5 @@
 import BlogCard from "./BlogCard";
+import BlogNavLinksMobile from "./BlogNavLinksMobile";
 // import Filter from "./Filter";
 
 function Blogs({ blogs, filter }) {
@@ -14,7 +15,7 @@ function Blogs({ blogs, filter }) {
         Sign Confidently With Preci
       </h1>
    {/* <Filter/> */}
-     
+     <BlogNavLinksMobile/>
 
       <BlogCard blogs={blogs} />
     </div>

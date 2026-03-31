@@ -91,7 +91,7 @@ The salesperson never mentioned multiple insurance policies during the sale.
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonies.length)
-    }, 10000)
+    }, 20000)
 
     return () => clearInterval(interval)
   }, [testimonies.length])

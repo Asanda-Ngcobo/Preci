@@ -3,7 +3,8 @@ import BlogNavLinks from "./BlogNavLinks"
 
 function BlogNav() {
       return (
-    <div className="sticky bg-white z-10 flex justify-center items-center  top-0 w-screen 
+    <div className="sticky bg-white 
+     z-10 flex justify-center items-center  top-0 w-screen 
      h-20 
      ">
         <div className="flex flex-row

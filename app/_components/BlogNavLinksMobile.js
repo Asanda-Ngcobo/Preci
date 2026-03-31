@@ -31,7 +31,7 @@ const navLinks = [
   
   },
   {
-    name: 'Credit Score',
+    name: 'Credit',
     href: '/blog/credit',
     exact: false,
   
@@ -45,14 +45,14 @@ const navLinks = [
   },
 ]
 
-export default function BlogNavLinks() {
+export default function BlogNavLinksMobile() {
   const pathname = usePathname()
 
   return (
     <div>
-      <nav className=" w-full hidden lg:flex 
+      <nav className=" w-full flex overflow-x-auto no-scrollbar m-2
       items-center justify-center font-(--font-sans)">
-        <ul className="flex gap-2 text-center w-full ">
+        <ul className="flex text-center w-full ">
           {navLinks.map((link) => {
             const isActive = link.exact
               ? pathname === link.href
@@ -65,8 +65,8 @@ export default function BlogNavLinks() {
               >
                 <Link
                   href={link.href}
-                  className={`px-4 cursor-pointer py-1 transition
-                    ${isActive ? ' border-b-2' : 'hover:border-b-2'}`}
+                  className={`px-4 cursor-pointer py-2 transition rounded-2xl 
+                    ${isActive ? ' bg-(--accent-primary) ' : 'bg-(--accent-secondary)'}`}
                 >
              
                   <span>{link.name}</span>
