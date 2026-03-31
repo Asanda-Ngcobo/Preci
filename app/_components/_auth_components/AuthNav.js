@@ -17,11 +17,13 @@ function Nav() {
         justify-between
          items-center w-[80%] mx-auto">
 
-
-             <h2 className="font-sans text-(--accent-primary) font-bold
+     <Link href='/'>
+       <h2 className="font-sans text-(--accent-primary) font-bold
                 text-3xl ">
                    Préci
                 </h2>
+     </Link>
+           
     
          
           

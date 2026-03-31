@@ -51,7 +51,7 @@ export default function BlogNavLinksMobile() {
   return (
     <div>
       <nav className=" w-full flex overflow-x-auto no-scrollbar m-2
-      items-center justify-center font-(--font-sans)">
+      items-center justify-center font-(--font-sans) lg:hidden">
         <ul className="flex text-center w-full ">
           {navLinks.map((link) => {
             const isActive = link.exact

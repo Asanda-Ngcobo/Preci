@@ -53,10 +53,13 @@ function LoginClient() {
          
         </form>
         <p className="text-center text-xs py-2 text-gray-300">By continuing,
-             you acknowledge    Préci’s <Link href='privacy'
+             you acknowledge    Préci’s <Link href='/privacy'
              className="underline">
              Privacy Policy.
-             </Link> </p>
+             </Link> and <Link href='/terms'
+             className="underline">
+             Terms Of Use.
+             </Link></p>
 
         {/* Footer */}
        
