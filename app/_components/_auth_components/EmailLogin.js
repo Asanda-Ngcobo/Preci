@@ -8,6 +8,7 @@ import SignUpClient from "../SignUpClient"
 import { loginUser } from "@/app/_lib/actions"
 import toast from "react-hot-toast"
 import SignUpSucess from "./SignUpSucess"
+import { useRouter } from "next/navigation"
 
 function EmailLogin({setIsEmail}) {
      const [password, setPassword] = useState("")
@@ -15,13 +16,24 @@ function EmailLogin({setIsEmail}) {
      const [signup, setSignUp] = useState(false)
      const [isPending, startTransition] = useTransition()
      const [signupSuccess, SetSignupSuccess] = useState(false)
+     const router = useRouter()
 
      const handleSubmit = (formData) => {
     startTransition(async () => {
       try {
          await loginUser(formData);
 
+   toast.success('Signin successful! Redirecting...', {
+          duration: 4000,
+          style: {
+            background: '#2F8F83',
+            color: '#fff',
+          },
+        });
 
+        setTimeout(()=>{
+          router.push('/users')
+        }, 500)
       }
        catch (error) {
         toast.error('Something went wrong', {
