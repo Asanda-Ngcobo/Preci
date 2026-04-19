@@ -63,6 +63,7 @@ function FullSummary({ full_summary, contract_type }) {
                   <h3 className="mt-5 text-base font-semibold text-gray-900">
                     {addEmojiToHeading(headingText)}
                   </h3>
+                  
                 </li>
               );
             }
@@ -87,10 +88,10 @@ function FullSummary({ full_summary, contract_type }) {
             );
           })}
         </ul>
-        <h2 className=" text-right">  Powered By <span className="font-sans text-(--accent-primary) font-bold
+        {/* <h2 className=" text-right">  Powered By <span className="font-sans text-(--accent-primary) font-bold
                 text-xl ">
                    Préci
-                </span></h2>
+                </span></h2> */}
       
       </div>
     </div>

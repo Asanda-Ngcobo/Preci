@@ -12,10 +12,15 @@ export default async function SummaryPreview({ summary,profile }) {
   
   return (
     <>
-   <h2 className="text-lg font-semibold mb-4 sticky top-4 z-10 pb-2">
-        {contract_type}
-      </h2>
-           
+   <div className="text-lg font-semibold mb-8 sticky top-4 z-10 pb-2">
+       <h1>{contract_type} Summary</h1> 
+       <p className="text-xs font-medium text-center">Powered By <span className="font-sans
+         text-(--accent-primary) font-bold
+                text-xl ">
+                   Préci
+                </span></p>  
+      </div>
+      
 
              <div className="rounded-2xl p-6 flex flex-col
      justify-center items-center
