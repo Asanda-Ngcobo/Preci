@@ -3,10 +3,7 @@ import Testimonials from "../_components/_auth_components/Testimonials";
 
 
 
-export const metadata = {
-  title: 'Home'
-  
-};
+
 
 
 function Page() {

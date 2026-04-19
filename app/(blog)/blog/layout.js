@@ -15,6 +15,12 @@ const HeadingsFont = DM_Sans({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: 'Blog', 
+  description: `Preci Blog teaches consumers about the things they should look out for before signing any phone contract,
+  lease agreement, gym membership, car finance, car insurance, phone insurance, life insurance, personal loan, store account, car tracker, etc. 
+  `
+}
 
 export default async function RootLayout({ children }) {
    

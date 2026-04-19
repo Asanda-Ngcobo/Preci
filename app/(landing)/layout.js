@@ -26,8 +26,12 @@ export const metadata = {
   }, 
 
   description: `Preci AI summarizes and highlight potential financial risks, cancellations & renewals, 
-  keydates & deadlines, etc. for your phone, lease, car financing, mortgage, or insurance contracts
+  keydates & deadlines, etc. for your phone, lease,
+   car financing, mortgage, or insurance contracts
   for you to make informed decision and prevent being a slave to some service provider. `,
+
+  keywords: ['phone contract', 'iphone', 'vodacom', 'mtn', 'webuycars', 'autotrader', 'property24', 'privateproperty', 
+  'avbob', 'outsurance', 'clintele', 'car finance'],
   
 };
 
