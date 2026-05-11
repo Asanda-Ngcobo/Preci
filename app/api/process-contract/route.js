@@ -367,7 +367,7 @@ Give South African consumers and workers a clear, fast, and honest understanding
   full_summary: fullSummary,
   tokens_used: tokens,
   price_zar: price,
-  is_paid: true,
+  paid: true,
 
 
       })
