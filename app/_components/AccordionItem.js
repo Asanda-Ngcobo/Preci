@@ -19,7 +19,7 @@ export default function AccordionItem({ question, explanation, index, isOpen, on
       {isOpen && (
         <div className="mt-4 
   
-        text-base text-gray-600 font-medium leading-relaxed">
+        text-center text-gray-600 font-medium leading-relaxed">
           {explanation}
         </div>
       )}
