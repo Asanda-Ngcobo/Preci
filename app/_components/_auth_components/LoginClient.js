@@ -6,6 +6,7 @@ import SocialAuth from "./SocialAuth"
 import ContractTypeRotator from "../ContractTypes"
 import EmailLogin from "./EmailLogin"
 
+
 function LoginClient() {
   
  const [isEmail, setIsEmail] = useState(false)
@@ -23,7 +24,7 @@ function LoginClient() {
              calm explanation of
               what you committing or have committed to.</h3>
       </div>
-
+     
       {/* Card */}
       <div className="rounded-3xl border border-gray-300 p-5">
         <p className="mb-4 text-center text-sm text-gray-600">

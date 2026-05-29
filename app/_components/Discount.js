@@ -82,11 +82,12 @@ function Discount() {
               key={item.label}
               className="min-w-fit text-center"
             >
-              <div className="text-md font-bold">
+              <div className="text-sm font-bold">
                 {String(item.value).padStart(2, "0")}
               </div>
 
-              <div className="hidden lg:flex text-[8px] tracking-wide text-white/60">
+              <div className="hidden lg:flex text-xs
+               tracking-wide text-white/60">
                 {item.label}
               </div>
             </div>

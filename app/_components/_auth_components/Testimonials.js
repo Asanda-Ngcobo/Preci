@@ -99,9 +99,9 @@ The salesperson never mentioned multiple insurance policies during the sale.
   const current = testimonies[currentIndex]
 
   return (
-    <div className="w-[90%] hidden mx-auto h-full md:w-[50%] md:mx-0 md:h-[72vh]  md:flex
-     items-center justify-center bg-(--accent-primary)">
-      <div className="max-w-lg text-white p-8 transition-all duration-700 ease-in-out">
+    <div className="w-[90%] mx-auto h-full md:w-[50%] md:mx-0 md:h-[72vh]  md:flex
+     items-center justify-center">
+      <div className="max-w-lg text-foreground p-8 transition-all duration-700 ease-in-out">
         {current.picture && (
           <Image
             src={current.picture.src}

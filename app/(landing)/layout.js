@@ -10,6 +10,7 @@ import Discount from "../_components/Discount";
 
 
 
+
 const Primaryfont = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
           <Nav/>
          {children}
    <MeetPreci/>
+  
      <Footer/>
         </MenuProvider>
        

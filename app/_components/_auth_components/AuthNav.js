@@ -28,12 +28,16 @@ function Nav() {
          
           
  <ul className="flex gap-4 text-sm cursor-pointer">
-  <li className="hover:bg-(--accent-secondary) w-fit h-fit 
+  <li className="hover:underline w-fit h-fit 
   p-2 rounded-2xl"><Link href='#meet-preci'>Meet Préci</Link></li>
-   <li className="hover:bg-(--accent-secondary) w-fit h-fit 
+   <li className="hover:underline w-fit h-fit 
   p-2 rounded-2xl
-  active:bg-(--accent-primary) 
+  active:underline
   "><Link href='/blog'>Blog</Link></li>
+    <li className="hover:underline w-fit h-fit 
+  p-2 rounded-2xl
+  active:underline
+  "><Link href='/about'>About</Link></li>
  
  </ul>
             
