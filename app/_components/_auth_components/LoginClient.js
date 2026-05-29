@@ -14,14 +14,14 @@ function LoginClient() {
     <main className="mx-auto w-[85%] md:w-[30%]">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="text-lg md:text-3xl font-bold">
+        <h1 className="text-2xl md:text-3xl font-bold">
           Whether You Are Taking a
         </h1>
         <ContractTypeRotator />
          <h3 className="text-(--text-secondary)
-            md:text-xs text-[10px]">Before you sign & commit, upload your contract document and get a clear,
+            md:text-xs text-[12px]">Upload the agreement and get a clear,
              calm explanation of
-              what you committing to.</h3>
+              what you committing or have committed to.</h3>
       </div>
 
       {/* Card */}
