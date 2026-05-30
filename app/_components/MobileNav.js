@@ -67,7 +67,7 @@ function MobileMenu() {
         </ul>
       </nav>
      
-      <ul className="flex justify-between mt-10 bg-amber-200 w-[80%] mx-auto">
+      <ul className="flex justify-between mt-10  w-[80%] mx-auto">
         <li className="w-1/2 "><Link href='/about' className="gap-2 flex active:text-2xl"><Smile/> About</Link> </li>
          <li className="w-1/2"><Link href='/about' className="gap-2 flex active:text-2xl"> <PhoneOutgoing/> Contact us</Link></li>
       </ul>
