@@ -101,7 +101,7 @@ The salesperson never mentioned multiple insurance policies during the sale.
   return (
     <div className="w-[90%] mx-auto h-full md:w-[50%]
      md:mx-0 md:h-[72vh]  md:flex
-     items-center justify-center">
+      justify-center">
       <div className="max-w-lg text-foreground p-8 transition-all duration-700 ease-in-out">
         {current.picture && (
           <Image

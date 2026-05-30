@@ -12,7 +12,7 @@ function Footer() {
                    <div >
                 
               <h3>&copy; {thisYear}  Préci. All Rights Reserved.</h3> 
-              <ul className="flex flex-row gap-2 mt-10">
+              <ul className="flex flex-col gap-2 mt-10">
                 <li className="px-2">Instagram</li>
                 <li className="px-2">Facebook</li>
                      <li className="px-2">TikTok</li>
@@ -28,7 +28,10 @@ function Footer() {
                     
                 </div>
          
-            
+             <h2 className="font-sans text-(--accent-primary) text-center
+              font-bold text-[200px]">
+            Préci
+          </h2>
         </div>
     )
 }

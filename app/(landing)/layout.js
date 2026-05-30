@@ -7,6 +7,7 @@ import MeetPreci from "../_components/_auth_components/MeetPreci";
 import Footer from "../_components/Footer";
 import Discount from "../_components/Discount";
 import MobileMenu from "../_components/MobileNav";
+import Testimonials from "../_components/_auth_components/Testimonials";
 
 
 
@@ -54,7 +55,7 @@ export default function RootLayout({ children }) {
           <Nav/>
          {children}
    <MeetPreci/>
-  
+  {/* <Testimonials/> */}
      <Footer/>
         </MenuProvider>
        
