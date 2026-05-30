@@ -6,6 +6,7 @@ import { MenuProvider } from "@/app/providers/MenuProvider";
 import Footer from "@/app/_components/Footer";
 import { Toaster } from "react-hot-toast";
 import Nav from "../_components/_auth_components/AuthNav";
+import MobileMenu from "../_components/MobileNav";
 
 
 const Primaryfont = Inter({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
          <Toaster position="top-center" 
          reverseOrder={false} />
         <MenuProvider>
+          <MobileMenu/>
         <Nav/>
          {children}
     
