@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function AboutPage() {
   return (
     <main className="bg-white text-zinc-900">
@@ -13,7 +14,7 @@ export default function AboutPage() {
 
             <h1 className="text-5xl font-bold tracking-tight text-zinc-900 sm:text-6xl lg:text-7xl">
               Understand Before
-              <span className="block text-zinc-500">You Agree.</span>
+              <span className="block text-(--accent-secondary)">You Agree.</span>
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-600 sm:text-xl">
@@ -30,7 +31,7 @@ export default function AboutPage() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <button className="rounded-2xl bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700">
+              <button className="rounded-2xl bg-(--accent-primary) px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700">
                 Try Preci
               </button>
 
@@ -311,13 +312,13 @@ export default function AboutPage() {
           </p>
 
           <div className="mt-12 flex justify-center gap-4">
-            <button className="rounded-2xl bg-zinc-900 
+            <button className="rounded-2xl bg-(--accent-primary)
             px-8 py-4 text-sm font-semibold text-white transition hover:bg-zinc-700">
-              Start Using Preci
+              <Link href='/login'>Start Using Preci</Link> 
             </button>
 
             <button className="rounded-2xl border border-zinc-300 bg-white px-8 py-4 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-100">
-              Contact Us
+             <Link href='/contact-us'>Contact Us</Link> 
             </button>
           </div>
         </div>
