@@ -60,7 +60,7 @@ function Discount() {
         "
       >
         <p className="text-sm md:text-base font-medium text-center">
-          Free for Now!
+          Free for a limited time!
         </p>
 
         <div

@@ -24,7 +24,7 @@ export default function AccordionItem({
 
             {index === 3 && (
               <span className="ml-2 font-semibold text-(--accent-primary)">
-                (Free For Now!)
+                (Free For A Limited Time!)
               </span>
             )}
           </p>
