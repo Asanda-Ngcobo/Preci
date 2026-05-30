@@ -6,6 +6,7 @@ import Nav from "../_components/_auth_components/AuthNav";
 import MeetPreci from "../_components/_auth_components/MeetPreci";
 import Footer from "../_components/Footer";
 import Discount from "../_components/Discount";
+import MobileMenu from "../_components/MobileNav";
 
 
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
         <Toaster position="top-center" 
          reverseOrder={false} />
         <MenuProvider>
+          <MobileMenu/>
           <Discount/>
           <Nav/>
          {children}

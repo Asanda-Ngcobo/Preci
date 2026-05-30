@@ -311,7 +311,8 @@ export default function AboutPage() {
           </p>
 
           <div className="mt-12 flex justify-center gap-4">
-            <button className="rounded-2xl bg-zinc-900 px-8 py-4 text-sm font-semibold text-white transition hover:bg-zinc-700">
+            <button className="rounded-2xl bg-zinc-900 
+            px-8 py-4 text-sm font-semibold text-white transition hover:bg-zinc-700">
               Start Using Preci
             </button>
 

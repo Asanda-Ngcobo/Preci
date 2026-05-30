@@ -5,6 +5,7 @@ import { useState } from "react"
 import SocialAuth from "./SocialAuth"
 import ContractTypeRotator from "../ContractTypes"
 import EmailLogin from "./EmailLogin"
+import { Video } from "../Video"
 
 
 function LoginClient() {
@@ -15,14 +16,15 @@ function LoginClient() {
     <main className="mx-auto w-[85%] md:w-[30%]">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold">
-          Whether You Are Taking a
+        <h1 className="text-xl md:text-3xl font-bold">
+          Whether You Have or Is Taking A
         </h1>
         <ContractTypeRotator />
          <h3 className="text-(--text-secondary)
             md:text-xs text-[12px]">Upload the agreement and get a clear,
-             calm explanation of
+             precise summary of
               what you committing or have committed to.</h3>
+             
       </div>
      
       {/* Card */}
@@ -30,7 +32,7 @@ function LoginClient() {
         <p className="mb-4 text-center text-sm text-gray-600">
           Please log in and start uploading
         </p>
-
+        
         <SocialAuth />
 
         {/* Divider */}

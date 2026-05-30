@@ -1,26 +1,54 @@
+import Image from "next/image";
 
-export default function AccordionItem({ question, explanation, index, isOpen, onToggle }) {
+export default function AccordionItem({
+  question,
+  explanation,
+  index,
+  isOpen,
+  onToggle,
+  image,
+}) {
   return (
     <div
       onClick={onToggle}
-      className="cursor-pointer 
-       transition-all"
+      className="cursor-pointer transition-all bg-(--accent-secondary) "
     >
-      <div className="flex justify-between items-center">
-        <p className="text-gray-400 text-lg font-bold w-10">
-          {index + 1 < 10 ? `0${index + 1}` : index + 1}
+      <div className="flex items-center justify-between p-4">
+        <p className="w-10 text-lg font-bold text-gray-400">
+          {String(index + 1).padStart(2, "0")}
         </p>
-        <p className="flex-1 text-md
-         px-4">{question}</p>
-        <span className="text-2xl font-bold
-        text-(--accent-primary)">{isOpen ? '−' : '+'}</span>
+
+        <div className="flex-1 px-4 text-lg font-semibold">
+          <p>
+            {question}
+
+            {index === 3 && (
+              <span className="ml-2 font-semibold text-(--accent-primary)">
+                (Free For Now!)
+              </span>
+            )}
+          </p>
+        </div>
+
+        <span className="text-2xl font-bold text-(--accent-primary)">
+          {isOpen ? "−" : "+"}
+        </span>
       </div>
 
       {isOpen && (
-        <div className="mt-4 
-  
-        text-center text-gray-600 font-medium leading-relaxed">
-          {explanation}
+        <div className="mt-4 flex flex-col-reverse 
+        justify-between text-center font-medium leading-relaxed text-gray-600 md:flex-row">
+          <div className="md:w-1/2">
+            <Image
+              src={image}
+              alt={question}
+              className="mx-auto w-[70%]"
+            />
+          </div>
+
+          <div className="flex items-center justify-center md:w-1/2">
+            {explanation}
+          </div>
         </div>
       )}
     </div>

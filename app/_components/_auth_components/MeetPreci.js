@@ -11,7 +11,7 @@ function MeetPreci() {
         {/* Intro */}
         <div className="mb-12 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Salespeople sell. We explain.
+            Salespeople sell. <span className="text-(--accent-primary)">We explain.</span>
           </h1>
           <p className="mt-4 max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
             Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms — 

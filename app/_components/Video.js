@@ -10,7 +10,7 @@ export function Video() {
       playsInline
       preload="none"
     >
-      <source src="/Prici.mp4" type="video/mp4" />
+      <source src="/Home Video.mp4" type="video/mp4" />
     </video>
   );
 }

@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react";
 
 const contract_type = [
-  { id: 1, type: "Phone Contract." },
-  { id: 2, type: "Car Finance." },
-  { id: 3, type: "Car Tracker." },
-  { id: 4, type: "Home Loan." },
-  { id: 5, type: "Lease Agreement." },
-  { id: 6, type: "Personal loan." },
-  { id: 7, type: "Insurance Policy." },
-  { id: 8, type: "Gym Membership." },
+   { id: crypto.randomUUID(), type: "Insurance Policy." },
+    { id: crypto.randomUUID(), type: "Lease Agreement." },
+  { id: crypto.randomUUID(), type: "Personal loan." },
+  { id: crypto.randomUUID(), type: "Phone Contract." },
+  { id: crypto.randomUUID(), type: "Gym Membership." },
+  { id: crypto.randomUUID(), type: "Car Finance." },
+  { id: crypto.randomUUID(), type: "Car Tracker." },
+  { id: crypto.randomUUID(), type: "Home Loan." },
+
+  
 ];
 
 export default function ContractTypeRotator() {
@@ -25,7 +27,7 @@ export default function ContractTypeRotator() {
 
   return (
     <div className="md:text-3xl text-xl font-sans font-bold
-     text-(--accent-secondary)">
+     text-(--accent-primary)">
       {contract_type.map((item, index) => (
         <h1
           key={item.id}

@@ -13,8 +13,9 @@ function Footer() {
                 
               <h3>&copy; {thisYear}  Préci. All Rights Reserved.</h3> 
               <ul className="flex flex-row gap-2 mt-10">
-                <li className="px-2"><Instagram/></li>
-                <li className="px-2"><Linkedin/></li>
+                <li className="px-2">Instagram</li>
+                <li className="px-2">Facebook</li>
+                     <li className="px-2">TikTok</li>
               
               </ul>
 
