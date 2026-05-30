@@ -32,7 +32,7 @@ export default function AboutPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <button className="rounded-2xl bg-(--accent-primary) px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700">
-                Try Preci
+               <Link href='/auth/login'>Try Preci</Link> 
               </button>
 
               <button className="rounded-2xl border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-100">
@@ -314,7 +314,7 @@ export default function AboutPage() {
           <div className="mt-12 flex justify-center gap-4">
             <button className="rounded-2xl bg-(--accent-primary)
             px-8 py-4 text-sm font-semibold text-white transition hover:bg-zinc-700">
-              <Link href='/login'>Start Using Preci</Link> 
+              <Link href='/auth/login'>Start Using Preci</Link> 
             </button>
 
             <button className="rounded-2xl border border-zinc-300 bg-white px-8 py-4 text-sm font-semibold text-zinc-700 transition hover:bg-zinc-100">

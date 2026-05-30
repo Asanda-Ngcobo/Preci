@@ -7,7 +7,7 @@ function Footer() {
 
     const thisYear = new Date().getFullYear()
     return (
-        <div className="md:flex w-[90%] mx-auto ">
+        <div className=" w-[90%] mx-auto h-fit ">
             <div className="flex flex-col justify-between">
                    <div >
                 
