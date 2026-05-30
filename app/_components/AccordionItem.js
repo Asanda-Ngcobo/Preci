@@ -11,7 +11,7 @@ export default function AccordionItem({
   return (
     <div
       onClick={onToggle}
-      className="cursor-pointer transition-all bg-(--accent-secondary) "
+      className="cursor-pointer transition-all  "
     >
       <div className="flex items-center justify-between p-4">
         <p className="w-10 text-lg font-bold text-gray-400">
