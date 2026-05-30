@@ -17,7 +17,7 @@ export default async function SummaryPreview({ summary,profile }) {
        <p className="text-xs font-medium text-center">Powered By <span className="font-sans
          text-(--accent-primary) font-bold
                 text-xl ">
-                   Préci
+                   Préci AI
                 </span></p>  
       </div>
       
