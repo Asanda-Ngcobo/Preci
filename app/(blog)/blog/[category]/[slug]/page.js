@@ -54,8 +54,8 @@ export default async function Page({ params }) {
   };
 
   return (
-    <article className="w-[60%]
-     ml-[6%] mt-10">
+    <article className="w-[90%]
+     mx-auto mt-10">
       
       {/* JSON-LD Structured Data */}
       <script
