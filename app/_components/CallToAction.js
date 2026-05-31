@@ -19,7 +19,7 @@ function CallToAction({ blog }) {
     label: "Check Employment Contract",
   },
   housing: {
-    href: "/housing",
+    href: "/Housing",
     label: "Check Lease Agreement",
   },
 }
@@ -73,10 +73,11 @@ const cta = ctaConfig[blog.type] || {
         <button
           onClick={closeBanner}
           className="
-            absolute top-4 right-4 z-20
+            absolute top-0 right-4 z-20
             w-10 h-10 rounded-full
             bg-black/10 hover:bg-black/20
             transition
+            flex justify-center items-center
           "
         >
           ✕
@@ -87,13 +88,7 @@ const cta = ctaConfig[blog.type] || {
           {/* Image */}
           {blog.image_url && (
             <div className="relative h-72 md:h-auto md:w-1/2">
-              <Image
-                src={blog.image_url}
-                alt={blog.title}
-                fill
-                unoptimized
-                className="object-cover"
-              />
+          
               <Discount/>
             </div>
           )}
@@ -142,7 +137,11 @@ const cta = ctaConfig[blog.type] || {
               Join thousands of South Africans making sense of
                their agreements before the lack of understanding costs the thousands of rands.
             </p>
+             <p className="text-center 
+          underline text-gray-500"
+          onClick={closeBanner}>Not yet</p>
           </div>
+         
         </div>
       </div>
     </div>
