@@ -1,6 +1,7 @@
 import { DM_Sans, Inter } from "next/font/google";
 import "@/app/globals.css";
 import BlogNav from "@/app/_components/BlogNav";
+import Discount from "@/app/_components/Discount";
 
 
 
@@ -31,6 +32,7 @@ export default async function RootLayout({ children }) {
          <body
         className={`${Primaryfont.variable} ${HeadingsFont.variable} antialiased`}
       >
+        <Discount/>
        <BlogNav/>
          {children}
     
