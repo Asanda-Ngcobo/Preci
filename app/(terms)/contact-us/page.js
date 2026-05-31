@@ -1,4 +1,4 @@
-import { Email, Mail, MapPin } from "@deemlol/next-icons";
+import { Email, Mail, MapPin, MessageCircle } from "@deemlol/next-icons";
 
 function ContactUsPage() {
     return (
@@ -16,11 +16,11 @@ function ContactUsPage() {
                  mx-auto flex gap-2
                 flex-col md:flex-row p-3 rounded-2xl">
                 <div className="px-2 py-1">
-                    <Mail/>
+                    <MessageCircle/>
                 </div>
-             <h1 className="text-lg px-2 py-1 1 text-gray-400">Email</h1>
+             <h1 className="text-lg px-2 py-1 1 text-gray-400">WhatsApp</h1>
                 <p className="px-2 py-1">
-                    support@preci.co.za
+                    +27 72 124 7120
                 </p>
                 </div>
 
