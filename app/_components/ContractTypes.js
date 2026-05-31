@@ -24,7 +24,8 @@ export default function ContractTypeRotator() {
   }, []);
 
   return (
-    <div className="md:text-3xl text-xl font-sans font-bold text-(--accent-primary)">
+    <div className="md:text-3xl 
+    text-xl font-sans font-bold text-(--accent-primary)">
       {contract_types.map((type, index) => (
         <h1
           key={type}

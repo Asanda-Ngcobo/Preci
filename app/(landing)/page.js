@@ -1,5 +1,5 @@
 import LoginClient from "../_components/_auth_components/LoginClient";
-import Testimonials from "../_components/_auth_components/Testimonials";
+
 import HeroImage from "../_components/HeroImage";
 
 
