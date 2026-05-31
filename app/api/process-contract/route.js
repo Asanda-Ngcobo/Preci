@@ -249,11 +249,12 @@ Focus on:
 
 What is covered (insuring agreement)
 
-What is not covered (exclusions and limits)
+What is not covered (exclusions and limits, explicitly include 
+these in the summary)
 
-Pre-existing conditions
+Pre-existing conditions (if any, include the in the summary)
 
-High-risk activities or negligence exclusions
+High-risk activities or negligence exclusions  (if any, include the in the summary)
 
 Premium amount and payment frequency
 
