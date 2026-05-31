@@ -7,6 +7,7 @@ import Footer from "@/app/_components/Footer";
 import { Toaster } from "react-hot-toast";
 import Nav from "../_components/_auth_components/AuthNav";
 import MobileMenu from "../_components/MobileNav";
+import Discount from "../_components/Discount";
 
 
 const Primaryfont = Inter({
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
          reverseOrder={false} />
         <MenuProvider>
           <MobileMenu/>
+          <Discount/>
         <Nav/>
          {children}
     

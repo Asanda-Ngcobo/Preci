@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useMenu } from "../providers/MenuProvider";
 import { ChevronRight, Phone, PhoneOutgoing, Smile, X } from "@deemlol/next-icons";
+import Discount from "./Discount";
 
 const links = [
  
@@ -35,7 +36,7 @@ function MobileMenu() {
     <div className="fixed top-0
     left-1/2 -translate-x-1/2 w-full h-screen 
     z-40 bg-white px-6 py-4 text-[#4B4B4B] flex flex-col">
-
+   <Discount/>
       <div className="w-[80%] mx-auto my-3 
       flex justify-between items-center py-8">
         <Link href="/" onClick={toggleMenu}>
@@ -57,7 +58,8 @@ function MobileMenu() {
           {links.map(({ href, label }) => (
             <li key={href} className="flex justify-between
              items-center
-             hover:bg-gray-100  transition active:text-2xl">
+             hover:bg-gray-100  transition active:text-2xl"
+              >
               <Link href={href} >
                 {label}
               </Link>
@@ -69,7 +71,7 @@ function MobileMenu() {
      
       <ul className="flex justify-between mt-10  w-[80%] mx-auto">
         <li className="w-1/2 "><Link href='/about' className="gap-2 flex active:text-2xl"><Smile/> About</Link> </li>
-         <li className="w-1/2"><Link href='/about' className="gap-2 flex active:text-2xl"> <PhoneOutgoing/> Contact us</Link></li>
+         <li className="w-1/2"><Link href='/contact-us' className="gap-2 flex active:text-2xl"> <PhoneOutgoing/> Contact us</Link></li>
       </ul>
 
 

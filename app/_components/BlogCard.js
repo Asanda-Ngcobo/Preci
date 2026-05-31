@@ -17,6 +17,7 @@ function BlogCard({ blogs = [] }) {
                 alt={blog.title}
                 fill
                 unoptimized
+                loading="eager"
                 className="object-cover"
               />
             </div>
