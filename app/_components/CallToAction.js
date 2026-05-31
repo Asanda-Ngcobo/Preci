@@ -137,7 +137,7 @@ const cta = ctaConfig[blog.type] || {
               Join thousands of South Africans making sense of
                their agreements before the lack of understanding costs the thousands of rands.
             </p>
-             <p className="text-center 
+             <p className="text-center text-md py-2
           underline text-gray-500"
           onClick={closeBanner}>Not yet</p>
           </div>
