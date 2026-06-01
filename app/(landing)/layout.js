@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
           <Nav/>
          {children}
    <MeetPreci/>
-  <Testimonials/>
+  
      <Footer/>
         </MenuProvider>
        

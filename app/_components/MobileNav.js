@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useMenu } from "../providers/MenuProvider";
 import { ChevronRight, Phone, PhoneOutgoing, Smile, X } from "@deemlol/next-icons";
 import Discount from "./Discount";
+import SocialAuth from "./_auth_components/SocialAuth";
 
 const links = [
  
@@ -74,7 +75,7 @@ function MobileMenu() {
          <li className="w-1/2"><Link href='/contact-us' className="gap-2 flex active:text-2xl"> <PhoneOutgoing/> Contact us</Link></li>
       </ul>
 
-
+     <SocialAuth/>
     </div>
   );
 }

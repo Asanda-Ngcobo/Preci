@@ -1,5 +1,6 @@
 import Accordion from "../Accordion";
 import { Video } from "../Video";
+import Testimonials from "./Testimonials";
 
 function MeetPreci() {
   return (
@@ -44,6 +45,7 @@ function MeetPreci() {
           </div>
         </div>
       </div>
+      <Testimonials/>
     </section>
   );
 }
