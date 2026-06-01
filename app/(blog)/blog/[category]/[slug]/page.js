@@ -98,7 +98,7 @@ const cta = ctaConfig[blog.type] || {
         body={blog.body}/>
       </div>
      <CallToAction blog={blog}/>
-      <div className="fixed bg-black text-white
+      <div className="fixed text-white
      flex items-center justify-center">
       
       {/* Backdrop */}
@@ -113,7 +113,7 @@ const cta = ctaConfig[blog.type] || {
           relative z-10
           w-full h-full
           md:h-auto md:max-w-3xl
-         
+         bg-black
           md:rounded-3xl
           shadow-2xl
           overflow-hidden
