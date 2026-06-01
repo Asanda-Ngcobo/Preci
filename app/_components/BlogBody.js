@@ -1,10 +1,28 @@
 'use client';
 import React from 'react';
-
-export default function BlogBody({ body }) {
+import Link from "next/link";
+export default function BlogBody({ body, blog }) {
   // Split the body by double newlines (paragraphs)
   const paragraphs = body.split(/\n\s*\n/);
+  const ctaConfig = {
+  insurance: {
+    href: "/insurance",
+    label: "Check Insurance Policy",
+  },
+  employment: {
+    href: "/employment",
+    label: "Check Employment Contract",
+  },
+  Housing: {
+    href: "/Housing",
+    label: "Check Lease Agreement",
+  },
+}
 
+const cta = ctaConfig[blog.type] || {
+  href: "/auth/login",
+  label: "Upload Agreement",
+}
   return (
     <div className="max-w-none mx-auto">
       {paragraphs.map((para, i) => {
@@ -32,6 +50,83 @@ export default function BlogBody({ body }) {
           </p>
         );
       })}
+
+       {/* Modal */}
+      <div
+        className="
+          
+          w-full h-fit
+          md:h-auto md:max-w-3xl
+         bg-black
+          md:rounded-3xl
+          shadow-2xl
+          overflow-hidden
+          animate-in fade-in zoom-in duration-300
+        "
+      >
+    
+
+        <div className="flex flex-col  h-full">
+          
+          {/* Image */}
+          
+            <div className="relative h-72
+             md:h-auto ">
+          
+            
+            </div>
+          
+
+          {/* Content */}
+          <div className="flex flex-col justify-center flex-1 p-8 md:p-12">
+         
+            
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">
+              Stop Guessing What Your Contract Says
+            </h2>
+
+            <div className="mt-4 text-gray-600 text-lg md:text-xl">
+              {blog.cta}
+            </div>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+           <Link
+  href={cta.href}
+  className="
+    flex-1 text-center
+    px-6 py-5 rounded-xl
+    bg-(--accent-primary)
+    text-white font-medium
+    hover:opacity-90 transition
+  "
+>
+  {cta.label}
+</Link>
+
+              <Link
+                href="/#meet-preci"
+                className="
+                  flex-1 text-center
+                  px-6 py-4 rounded-xl
+                  bg-black
+                  text-white font-medium
+                  border-white
+                  hover:opacity-90 transition
+                "
+              >
+                Learn More
+              </Link>
+            </div>
+
+            <p className="mt-4 text-sm text-center text-gray-500">
+              Join thousands of South Africans making sense of
+               their agreements before the lack of understanding costs the thousands of rands.
+            </p>
+          
+          </div>
+         
+        </div>
+      </div>
     </div>
   );
 }
