@@ -56,7 +56,7 @@ const cta = ctaConfig[blog.type] || {
         className="
           
           w-full h-fit
-          md:h-auto md:max-w-3xl
+          md:h-auto 
          bg-black
           md:rounded-3xl
           shadow-2xl
