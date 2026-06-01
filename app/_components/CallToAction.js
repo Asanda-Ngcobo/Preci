@@ -18,7 +18,7 @@ function CallToAction({ blog }) {
     href: "/employment",
     label: "Check Employment Contract",
   },
-  housing: {
+  Housing: {
     href: "/Housing",
     label: "Check Lease Agreement",
   },
@@ -48,7 +48,8 @@ const cta = ctaConfig[blog.type] || {
   if (!showBanner) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed bg-black text-white
+    inset-0 z-50 flex items-center justify-center">
       
       {/* Backdrop */}
       <div
@@ -62,7 +63,7 @@ const cta = ctaConfig[blog.type] || {
           relative z-10
           w-full h-full
           md:h-auto md:max-w-3xl
-          bg-white
+         
           md:rounded-3xl
           shadow-2xl
           overflow-hidden
@@ -77,21 +78,22 @@ const cta = ctaConfig[blog.type] || {
             w-10 h-10 rounded-full
             bg-black/10 hover:bg-black/20
             transition
-            flex justify-center items-center
+            flex justify-center items-center cursor-pointer
           "
         >
           ✕
         </button>
 
-        <div className="flex flex-col md:flex-row h-full">
+        <div className="flex flex-col  h-full">
           
           {/* Image */}
-          {blog.image_url && (
-            <div className="relative h-72 md:h-auto md:w-1/2">
+          
+            <div className="relative h-72
+             md:h-auto ">
           
               <Discount/>
             </div>
-          )}
+          
 
           {/* Content */}
           <div className="flex flex-col justify-center flex-1 p-8 md:p-12">
@@ -126,6 +128,7 @@ const cta = ctaConfig[blog.type] || {
                   px-6 py-4 rounded-xl
                   bg-black
                   text-white font-medium
+                  border-white
                   hover:opacity-90 transition
                 "
               >
@@ -138,7 +141,7 @@ const cta = ctaConfig[blog.type] || {
                their agreements before the lack of understanding costs the thousands of rands.
             </p>
              <p className="text-center text-md py-2
-          underline text-gray-500"
+          underline text-gray-500 cursor-pointer"
           onClick={closeBanner}>Not yet</p>
           </div>
          

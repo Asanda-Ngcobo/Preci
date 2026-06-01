@@ -12,6 +12,12 @@ const navLinks = [
     exact: true,
    
   },
+    {
+    name: 'Insurance',
+    href: '/blog/insurance',
+    exact: false,
+  
+  },
   {
     name: 'Car',
     href: '/blog/car',

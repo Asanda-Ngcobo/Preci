@@ -2,6 +2,7 @@ import { DM_Sans, Inter } from "next/font/google";
 import "@/app/globals.css";
 import BlogNav from "@/app/_components/BlogNav";
 import Discount from "@/app/_components/Discount";
+import Footer from "@/app/_components/Footer";
 
 
 
@@ -36,7 +37,7 @@ export default async function RootLayout({ children }) {
        <BlogNav/>
          {children}
     
-        
+        <Footer/>
   
       </body>
 
