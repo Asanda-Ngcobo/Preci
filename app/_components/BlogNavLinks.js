@@ -31,7 +31,7 @@ const navLinks = [
   
   },
   {
-    name: 'Phone',
+    name: 'Phone & WiFi',
     href: '/blog/phone',
     exact: false,
   

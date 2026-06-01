@@ -12,7 +12,7 @@ function Blogs({ blogs, filter }) {
   return (
     <div>
       <h1 className="text-4xl capitalize mb-8">
-        Sign Confidently With Preci
+        Understand Your Commitments With Preci
       </h1>
    {/* <Filter/> */}
      <BlogNavLinksMobile/>

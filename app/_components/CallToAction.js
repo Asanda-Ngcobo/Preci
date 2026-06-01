@@ -18,6 +18,10 @@ function CallToAction({ blog }) {
     href: "/employment",
     label: "Check Employment Contract",
   },
+   Phone: {
+    href: "/phone",
+    label: "Check the contract",
+  },
   Housing: {
     href: "/Housing",
     label: "Check Lease Agreement",

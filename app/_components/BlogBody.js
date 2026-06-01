@@ -14,8 +14,12 @@ export default function BlogBody({ body, blog }) {
     href: "/employment",
     label: "Check Employment Contract",
   },
+    Phone: {
+    href: "/phone",
+    label: "Check the contract",
+  },
   Housing: {
-    href: "/Housing",
+    href: "/housing",
     label: "Check Lease Agreement",
   },
 }
@@ -114,12 +118,13 @@ const cta = ctaConfig[blog.type] || {
 </Link>
 
               <Link
-                href="/#meet-preci"
+              href={`${cta.href}/#meet-preci`}
                 className="
                   flex-1 text-center
                   px-6 py-4 rounded-xl
                   bg-black
                   text-white font-medium
+                  border
                   border-white
                   hover:opacity-90 transition
                 "
