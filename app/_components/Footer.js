@@ -30,7 +30,8 @@ function Footer() {
         </div>
       </div>
 
-      <h2 className="font-sans text-(--accent-primary) text-center font-bold text-[150px]">
+      <h2 className="font-sans text-(--accent-primary) text-center font-bold
+      md:text-5xl text-[150px]">
         Préci
       </h2>
     </div>
