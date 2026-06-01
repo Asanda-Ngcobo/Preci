@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image"
 export default function BlogBody({ body, blog }) {
   // Split the body by double newlines (paragraphs)
   const paragraphs = body.split(/\n\s*\n/);
@@ -70,10 +71,19 @@ const cta = ctaConfig[blog.type] || {
           
           {/* Image */}
           
-            <div className="relative h-72
-             md:h-auto ">
+            <div className="flex flex-col md:flex-row h-full">
           
-            
+                  {blog.image_url && (
+            <div className="relative h-72 md:h-auto md:w-1/2">
+              <Image
+                src={blog.image_url}
+                alt={blog.title}
+                fill
+                unoptimized
+                className="object-cover"
+              />
+            </div>
+          )}
             </div>
           
 
