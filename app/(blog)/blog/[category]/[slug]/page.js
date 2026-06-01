@@ -103,7 +103,7 @@ const cta = ctaConfig[blog.type] || {
       
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className=" bg-black  h-[60vh] w-screen"
     
       />
 
@@ -113,7 +113,7 @@ const cta = ctaConfig[blog.type] || {
           relative z-10
           w-full h-full
           md:h-auto md:max-w-3xl
-         bg-black
+        
           md:rounded-3xl
           shadow-2xl
           overflow-hidden
@@ -159,6 +159,7 @@ const cta = ctaConfig[blog.type] || {
                   px-6 py-4 rounded-xl
                   bg-black
                   text-white font-medium
+                  border
                   border-white
                   hover:opacity-90 transition
                 "

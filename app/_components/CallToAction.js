@@ -48,7 +48,7 @@ const cta = ctaConfig[blog.type] || {
   if (!showBanner) return null
 
   return (
-    <div className="fixed bg-black text-white
+    <div className="fixed text-white
     inset-0 z-50 flex items-center justify-center">
       
       {/* Backdrop */}
@@ -63,7 +63,7 @@ const cta = ctaConfig[blog.type] || {
           relative z-10
           w-full h-full
           md:h-auto md:max-w-3xl
-         
+         bg-black
           md:rounded-3xl
           shadow-2xl
           overflow-hidden
