@@ -12,15 +12,15 @@ function Footer() {
 
   return (
     <div className="w-[90%] mx-auto h-fit">
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between my-10">
         <div>
           <h3>&copy; {year ?? ''} Préci. All Rights Reserved.</h3>
 
-          <ul className="flex flex-col gap-2 mt-10">
+          {/* <ul className="flex flex-col gap-2 mt-10">
             <li className="px-2">Instagram</li>
             <li className="px-2">Facebook</li>
             <li className="px-2">TikTok</li>
-          </ul>
+          </ul> */}
 
           <ul className="flex text-xs gap-4 flex-row mt-6 mb-4">
             <li className="px-2"><Link href='/terms'>Terms Of Service</Link></li>
