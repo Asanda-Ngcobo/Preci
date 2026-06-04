@@ -40,7 +40,8 @@ try {
   console.log("❌ Extract error:", err.message); // ADD THIS
   return NextResponse.json(
     {
-      error: "We couldn't read this document. It may be a scanned or image-based PDF.",
+      error: `We couldn't read this document.
+       It may be a scanned or image-based PDF.`,
     },
     { status: 400 }
   );
@@ -367,7 +368,6 @@ Give South African consumers and workers a clear, fast, and honest understanding
   summary_preview: preview,
   full_summary: fullSummary,
   tokens_used: tokens,
-  price_zar: price,
   paid: true,
 
 

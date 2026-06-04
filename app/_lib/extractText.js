@@ -4,10 +4,15 @@
  */
 
 export async function extractText(buffer, mimeType) {
-  if (mimeType !== "application/pdf") {
-    throw new Error("Unsupported file type");
-  }
+ const isPdf = file.type === "application/pdf";
 
+const isImage = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+  "image/heic",
+].includes(file.type);
   // Use require to avoid ESM issues
   const pdfParse = require("pdf-parse");
 

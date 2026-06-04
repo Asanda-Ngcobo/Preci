@@ -111,7 +111,7 @@ const cta = ctaConfig[blog.type] || {
               {blog.cta}
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col gap-4">
            <Link
   href={cta.href}
   className="
@@ -125,7 +125,7 @@ const cta = ctaConfig[blog.type] || {
   {cta.label}
 </Link>
 
-              <Link
+              {/* <Link
                 href="/#meet-preci"
                 className="
                   flex-1 text-center
@@ -137,7 +137,7 @@ const cta = ctaConfig[blog.type] || {
                 "
               >
                 Learn More
-              </Link>
+              </Link> */}
             </div>
 
             <p className="mt-4 text-sm text-center text-gray-500">

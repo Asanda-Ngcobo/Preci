@@ -92,7 +92,8 @@ const cta = ctaConfig[blog.type] || {
           
 
           {/* Content */}
-          <div className="flex flex-col justify-center flex-1 p-8 md:p-12">
+          <div className="flex flex-col md:w-[70%] mx-auto
+           justify-center flex-1 p-8 md:p-12">
          
             
             <h2 className="mt-2 text-3xl md:text-4xl font-bold">
@@ -103,7 +104,7 @@ const cta = ctaConfig[blog.type] || {
               {blog.cta}
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col gap-4">
            <Link
   href={cta.href}
   className="
@@ -116,7 +117,7 @@ const cta = ctaConfig[blog.type] || {
 >
   {cta.label}
 </Link>
-
+{/* 
               <Link
               href={`${cta.href}/#meet-preci`}
                 className="
@@ -130,7 +131,7 @@ const cta = ctaConfig[blog.type] || {
                 "
               >
                 Learn More
-              </Link>
+              </Link> */}
             </div>
 
             <p className="mt-4 text-sm text-center text-gray-500">
