@@ -14,13 +14,13 @@ function UploadOptions() {
 
     const allowedTypes = [
       "application/pdf",
-      "image/png",
-      "image/jpeg",
-      "image/jpg",
+      // "image/png",
+      // "image/jpeg",
+      // "image/jpg",
     ];
 
     if (!allowedTypes.includes(selectedFile.type)) {
-      alert("Please upload a PDF or image file.");
+      alert("Please upload a PDF file");
       return;
     }
 
@@ -63,7 +63,7 @@ function UploadOptions() {
         <input
           ref={inputRef}
           type="file"
-          accept=".pdf,.png,.jpg,.jpeg"
+          accept=".pdf"
           className="hidden"
           onChange={(e) => handleFile(e.target.files[0])}
         />
