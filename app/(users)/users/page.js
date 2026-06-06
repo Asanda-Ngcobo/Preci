@@ -26,7 +26,6 @@ const supabase = await createClient()
   }
 
   console.log({user})
-console.log('User ID:', user.id)
 const mysummaries = await getSummaries(user.id)
 
 
