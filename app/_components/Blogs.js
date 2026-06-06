@@ -1,13 +1,10 @@
 import BlogCard from "./BlogCard";
 import BlogNavLinksMobile from "./BlogNavLinksMobile";
-// import Filter from "./Filter";
 
-function Blogs({ blogs, filter }) {
 
-  // const displayBlogs =
-  //   filter === "All"
-  //     ? blogs
-  //     : blogs.filter((blog) => blog.type === filter);
+function Blogs({ blogs}) {
+
+  
 
   return (
     <div>
@@ -17,7 +14,9 @@ function Blogs({ blogs, filter }) {
    {/* <Filter/> */}
      <BlogNavLinksMobile/>
 
-      <BlogCard blogs={blogs} />
+      {blogs.length > 0 ? <BlogCard blogs={blogs}/> : <div className="flex w-full
+       h-[80vh] justify-center items-center">
+        <h1>NOTHING YET</h1></div>} 
     </div>
   );
 }

@@ -22,6 +22,11 @@ export default function BlogBody({ body, blog }) {
     href: "/housing",
     label: "Check Lease Agreement",
   },
+
+   employment: {
+    href: "/employment",
+    label: "Check Lease Agreement",
+  },
 }
 
 const cta = ctaConfig[blog.type] || {

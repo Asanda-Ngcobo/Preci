@@ -91,17 +91,16 @@ function Footer() {
           </div>
             
           </div>
-          <ul className="flex gap-2 mt-10">
-            
+          <ul className="flex flex-col gap-2 mt-10">
+            <h3 className='text-gray-400'>Socials</h3>
             {/* <li className=" w-15 h-15 rounded-xl flex
             justify-center items-center hover:bg-gray-400
             bg-white"><Link href=''><Image src={Instagram} alt='' width={50}/></Link></li> */}
-             <li className=" w-15 h-15 rounded-xl flex
-            justify-center items-center hover:bg-gray-400
-            bg-white"><Link href='https://www.facebook.com/profile.php?id=61590057382689'><Image src={Facebook} alt='' width={50}/></Link></li>
-              <li className=" w-15 h-15 rounded-xl flex
-            justify-center items-center hover:bg-gray-400
-            bg-white"><Link href='https://www.tiktok.com/@preci_ai'><Image src={TikTok} alt=''width={50}/></Link></li>
+             <li className=" py-2 hover:bg-gray-400
+            "><Link href='https://www.facebook.com/profile.php?id=61590057382689'>
+             Facebook</Link></li>
+              <li className=" py-2 hover:bg-gray-400
+          "><Link href='https://www.tiktok.com/@preci_ai'>TikTok</Link></li>
           </ul>
 
          

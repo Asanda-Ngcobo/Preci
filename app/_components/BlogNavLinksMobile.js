@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Car',     href: '/blog/car',     exact: false },
   { name: 'Housing', href: '/blog/housing', exact: false },
   { name: 'Phone',   href: '/blog/phone',   exact: false },
+  { name: 'Employment',     href: '/blog/employment',     exact: false },
   { name: 'Credit',  href: '/blog/credit',  exact: false },
   { name: 'Gym',     href: '/blog/gym',     exact: false },
 ];

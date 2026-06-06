@@ -37,6 +37,12 @@ const navLinks = [
   
   },
   {
+    name: 'Employment',
+    href: '/blog/employment',
+    exact: false,
+  
+  },
+  {
     name: 'Credit Score',
     href: '/blog/credit',
     exact: false,

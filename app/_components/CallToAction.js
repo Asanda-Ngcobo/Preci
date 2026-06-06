@@ -26,6 +26,10 @@ function CallToAction({ blog }) {
     href: "/Housing",
     label: "Check Lease Agreement",
   },
+   employment: {
+    href: "/employment",
+    label: "Check Lease Agreement",
+  },
 }
 
 const cta = ctaConfig[blog.type] || {

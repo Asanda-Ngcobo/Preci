@@ -1,7 +1,9 @@
+import LoginPhone from "@/app/_components/_auth_components/LoginPhone"
+import MeetPreci from "@/app/_components/_auth_components/MeetPreci"
+import MeetPreciPhone from "@/app/_components/_auth_components/MeetPreciPhone"
+import PhoneImage from "@/app/_components/PhoneImage"
 
-import LoginInsurance from "@/app/_components/_auth_components/LoginInsurance"
 
-import InsuranceImage from "@/app/_components/InsuranceImage"
 
 
 
@@ -11,13 +13,17 @@ import InsuranceImage from "@/app/_components/InsuranceImage"
 
 function Page() {
   return (
-    <div className="flex md:flex-row
+    <>
+      <div className="flex md:flex-row
     gap-6 md:gap-2 flex-col-reverse max-h-fit mt-15
      items-center justify-center ">
-      <LoginInsurance />
+      <LoginPhone />
       {/* <Testimonials/> */}
-      <InsuranceImage/>
+      <PhoneImage/>
     </div>
+    <MeetPreciPhone/>
+    </>
+  
   )
 }
 

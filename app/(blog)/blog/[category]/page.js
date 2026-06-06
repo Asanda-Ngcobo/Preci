@@ -11,7 +11,7 @@ export default async function CategoryPage({ params }) {
   );
 
   return (
-    <div className="w-[80%] mx-auto mt-10">
+    <div className="w-[80%] min-h-[90vh] mx-auto mt-10">
 
 
       <Blogs blogs={blogs} />
