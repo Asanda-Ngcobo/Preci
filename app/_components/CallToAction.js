@@ -12,29 +12,29 @@ function CallToAction({ blog }) {
   const ctaConfig = {
   insurance: {
     href: "/insurance",
-    label: "Check Insurance Policy",
+    label: "Upload Insurance Policy",
   },
   employment: {
     href: "/employment",
-    label: "Check Employment Contract",
+    label: "Upload Employment Contract",
   },
    Phone: {
     href: "/phone",
-    label: "Check the contract",
+    label: "Upload the contract",
   },
   Housing: {
     href: "/Housing",
-    label: "Check Lease Agreement",
+    label: "Upload Lease Agreement",
   },
    employment: {
     href: "/employment",
-    label: "Check Lease Agreement",
+    label: "Upload Lease Agreement",
   },
 }
 
 const cta = ctaConfig[blog.type] || {
   href: "/auth/login",
-  label: "Upload Agreement",
+  label: "Upload The Agreement",
 }
   useEffect(() => {
     const timeout = setTimeout(() => {
