@@ -82,7 +82,7 @@ export default async function UserSummaryPage({ params }) {
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("referral_discount_used")
+    .select("referral_discount_used, surveyed")
     .eq("id", user.id)
     .single();
 

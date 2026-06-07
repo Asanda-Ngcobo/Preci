@@ -34,7 +34,7 @@ const supabase = await createClient()
     redirect('/')
   }
 
-  console.log({user})
+
 const mysummaries = await getSummaries(user.id)
 
 

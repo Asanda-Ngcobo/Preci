@@ -24,8 +24,8 @@ function FullSummary({ full_summary, mysummaries, profile }) {
     .replace(/\n{3,}/g, "\n\n")
     .trim()
     .split("\n");
-
- const isNew = mysummaries.length ===  1 && profile.surveyed === false;
+    
+const isNew = mysummaries.length === 1 && !profile.surveyed;
 
   return (
     <>
