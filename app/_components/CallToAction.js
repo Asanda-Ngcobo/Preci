@@ -28,7 +28,7 @@ function CallToAction({ blog }) {
   },
    employment: {
     href: "/employment",
-    label: "Upload Lease Agreement",
+    label: "Upload Employment Agreement",
   },
 }
 

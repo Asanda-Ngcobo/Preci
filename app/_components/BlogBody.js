@@ -8,30 +8,30 @@ export default function BlogBody({ body, blog }) {
   const ctaConfig = {
   insurance: {
     href: "/insurance",
-    label: "Check Insurance Policy",
+    label: "Upload Insurance Policy",
   },
   employment: {
     href: "/employment",
-    label: "Check Employment Contract",
+    label: "Upload Employment Contract",
   },
     Phone: {
     href: "/phone",
-    label: "Check the contract",
+    label: "Upload The contract",
   },
   Housing: {
     href: "/housing",
-    label: "Check Lease Agreement",
+    label: "Upload Lease Agreement",
   },
 
    employment: {
     href: "/employment",
-    label: "Check Lease Agreement",
+    label: "Upload Employment Agreement",
   },
 }
 
 const cta = ctaConfig[blog.type] || {
   href: "/auth/login",
-  label: "Upload Agreement",
+  label: "Upload The Agreement",
 }
   return (
     <div className="max-w-none mx-auto">
