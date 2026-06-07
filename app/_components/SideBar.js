@@ -66,7 +66,7 @@ function SideBar({ data, userSummaries }) {
             return (
               <li
                 key={summary.id}
-                className="text-xs"
+                className="text-xs py-1"
                 onClick={() => setMenuOpen(prev => !prev)}
               >
                 <Link href={`/users/${summary.id}`} className="cursor-pointer">

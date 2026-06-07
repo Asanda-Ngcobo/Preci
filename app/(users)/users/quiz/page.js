@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/app/_utils/supabase/client";
+import { createClient } from "@/app/_lib/supabase/client";
+
 
 const questions = [
   {
