@@ -157,6 +157,7 @@ Price increases and when they apply
 Early cancellation fees
 
 Upgrade and renewal rules
+out-of-bundle charges
 
 2.Car Finance Agreements
 
@@ -222,7 +223,8 @@ Late payment penalties
 
 Security deposit
 
-Additional costs (water, electricity, refuse, sanitation, parking — clearly state if included or extra)
+Additional costs (water, electricity, 
+refuse, sanitation, parking — clearly state if included or extra)
 
 Rent increases
 

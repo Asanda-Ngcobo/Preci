@@ -6,7 +6,16 @@ import SearchView from "@/app/_components/SearchView";
 import { getSummaries } from "@/app/_lib/supabase/apis";
 
 
+export const metadata = {
+  metadataBase: new URL("https://preci.co.za"),
 
+  title: {
+    default:
+      "Preci | User",
+      
+    template: "%s | Preci",
+  },
+}
 
 export default async function Home() {
 const supabase = await createClient()

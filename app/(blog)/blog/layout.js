@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import BlogNav from "@/app/_components/BlogNav";
 import Discount from "@/app/_components/Discount";
 import Footer from "@/app/_components/Footer";
+import Script from "next/script";
 
 
 
@@ -30,6 +31,20 @@ export default async function RootLayout({ children }) {
   return (
    
   <html lang="en">
+    <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-070YXLFQYG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-070YXLFQYG');
+          `}
+        </Script>
+    </head>
          <body
         className={`${Primaryfont.variable} ${HeadingsFont.variable} antialiased`}
       >

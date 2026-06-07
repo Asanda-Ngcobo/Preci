@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import Nav from "../_components/_auth_components/AuthNav";
 import MobileMenu from "../_components/MobileNav";
 import Discount from "../_components/Discount";
+import Script from "next/script";
 
 
 const Primaryfont = Inter({
@@ -25,6 +26,20 @@ export default function RootLayout({ children }) {
   return (
    
   <html lang="en">
+        <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-070YXLFQYG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-070YXLFQYG');
+          `}
+        </Script>
+    </head>
        <body
         className={`${Primaryfont.variable} ${HeadingsFont.variable} antialiased`}
       >
