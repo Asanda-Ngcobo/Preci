@@ -40,7 +40,7 @@ const cta = ctaConfig[blog.type] || {
     const timeout = setTimeout(() => {
       setShowBanner(true)
       document.body.style.overflow = "hidden"
-    }, 12000)
+    }, 30000)
 
     return () => {
       clearTimeout(timeout)
