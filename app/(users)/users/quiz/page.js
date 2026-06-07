@@ -9,7 +9,7 @@ const questions = [
   {
     key: "funnel",
     title: "Where did you hear about Préci?",
-    options: ["TikTok", "Instagram", "LinkedIn", "Friend", "Other"],
+    options: ["TikTok", "Instagram", "Facebook", "Friend", "Other"],
   },
   {
     key: "satisfaction",
@@ -75,15 +75,23 @@ export default function OnboardingSurveyPage() {
 
       if (authError || !user) throw authError;
 
-      const { error } = await supabase.from("onboarding_surveys").insert({
-        email: user.email,
-        funnel: answers.funnel,
-        satisfaction: answers.satisfaction,
-        recommendation: answers.recommendation,
-        feedback: answers.feedback,
-      });
+     const { error } = await supabase.from("onboarding_surveys").insert({
+  email: user.email,
+  funnel: answers.funnel,
+  satisfaction: answers.satisfaction,
+  recommendation: answers.recommendation,
+  feedback: answers.feedback,
+});
 
-      if (error) throw error;
+if (error) throw error;
+
+// 👇 mark user as surveyed
+const { error: profileError } = await supabase
+  .from("profiles")
+  .update({ surveyed: true })
+  .eq("id", user.id);
+
+if (profileError) throw profileError;
 
       router.push("/users");
     } catch (err) {
@@ -111,7 +119,7 @@ export default function OnboardingSurveyPage() {
 
           <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
             <div
-              className="h-full bg-green-600 transition-all"
+              className="h-full bg-(--accent-secondary) transition-all"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -135,7 +143,7 @@ export default function OnboardingSurveyPage() {
                     }));
                     next();
                   }}
-                  className="w-full rounded-2xl border p-5 text-left hover:border-green-500 transition"
+                  className="w-full rounded-2xl border p-5 text-left hover:border-(--accent-secondary) transition"
                 >
                   {option}
                 </button>
@@ -147,7 +155,7 @@ export default function OnboardingSurveyPage() {
    
 
         {/* STEP 4 */}
-        {step === 4 && (
+        {step === 3 && (
           <>
             <h1 className="mb-4 text-3xl font-bold">
               Anything you would like us to improve?
@@ -172,7 +180,7 @@ export default function OnboardingSurveyPage() {
               onClick={saveSurvey}
               disabled={isSubmitting}
               className={`mt-8 w-full rounded-xl py-4 font-medium text-white transition
-                ${isSubmitting ? "bg-gray-400" : "bg-[#0B2E1E] hover:bg-[#1EC677]"}
+                ${isSubmitting ? "bg-gray-400" : "bg-(--accent-primary) hover:bg-(--accent-secondary)"}
               `}
             >
               {isSubmitting ? "Saving..." : "Finish"}

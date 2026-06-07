@@ -2,7 +2,7 @@ import { ChevronLeft } from "@deemlol/next-icons";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
-function FullSummary({ full_summary, contract_type }) {
+function FullSummary({ full_summary, mysummaries, profile }) {
   const addEmojiToHeading = (heading) => {
     const lower = heading.toLowerCase();
 
@@ -25,12 +25,12 @@ function FullSummary({ full_summary, contract_type }) {
     .trim()
     .split("\n");
 
- 
+ const isNew = mysummaries.length ===  1 && profile.surveyed === false;
 
   return (
     <>
       <div className="w-full -mt-25 md:hidden">
-        <Link href='/users'> <button className="bg-(--accent-primary)
+        <Link href={isNew ? '/users/quiz': '/users'}> <button className="bg-(--accent-primary)
             rounded-full  
             h-8 w-8 flex justify-center items-center
             cursor-pointer absolute"

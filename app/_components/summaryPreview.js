@@ -5,7 +5,7 @@ import FullSummary from "./FullSummary";
 import Preview from "./Preview";
 
 
-export default async function SummaryPreview({ summary,profile }) {
+export default async function SummaryPreview({ summary, profile, mysummaries }) {
   
   const {contract_type, summary_preview, full_summary,
      price_zar, is_paid, id, paid} = summary;
@@ -38,7 +38,9 @@ paid={is_paid}
 summaryId={id}
 user={profile}/> : <FullSummary
 full_summary={full_summary}
-contract_type={contract_type}/>}
+contract_type={contract_type}
+mysummaries={mysummaries}
+profile={profile}/>}
      
     </div>
             </>

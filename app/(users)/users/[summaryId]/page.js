@@ -1,4 +1,4 @@
-import { getSummary } from "@/app/_lib/supabase/apis";
+import { getSummaries, getSummary } from "@/app/_lib/supabase/apis";
 import SummaryPreview from "@/app/_components/summaryPreview";
 import { createClient } from "@/app/_lib/supabase/server";
 
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }) {
   const summary = await getSummary(summaryId);
 
   const contractType = formatContractType(summary?.contract_type);
+ 
 
   return {
     title: `${contractType} Summary | Preci`,
@@ -85,7 +86,9 @@ export default async function UserSummaryPage({ params }) {
     .eq("id", user.id)
     .single();
 
+
   const summary = await getSummary(summaryId);
+   const mysummaries = await getSummaries(user.id)
 
   if (!summary) {
     return (
@@ -97,7 +100,8 @@ export default async function UserSummaryPage({ params }) {
 
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
-      <SummaryPreview summary={summary} profile={profile} />
+      <SummaryPreview summary={summary} profile={profile}
+      mysummaries={mysummaries} />
     </div>
   );
 }
