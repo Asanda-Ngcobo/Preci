@@ -131,7 +131,7 @@ function EmailLogin({setIsEmail}) {
             
 
  )}
- <Testimonials/>
+ 
         </div>   
               
             

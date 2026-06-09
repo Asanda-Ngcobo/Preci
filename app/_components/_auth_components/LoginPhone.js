@@ -14,7 +14,7 @@ function LoginPhone() {
     <main className="mx-auto w-[85%] md:w-[30%]">
       <div className="mb-6 text-center">
         <h1 className="text-xl md:text-3xl font-bold">
-          Whether You Have or Is Taking An
+          Whether You Have or Is Taking A
         </h1>
          <h2 className="md:text-3xl 
     text-xl font-sans font-bold text-(--accent-primary)">Phone Contract</h2>

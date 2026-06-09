@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
       title: blog.seo_title || blog.title,
       description: blog.seo_description,
       type: "article",
-      url: `https://yourdomain.com/blog/${blog.slug}`,
+      url: `https://preci.co.za/blog/${blog.slug}`,
     },
   };
 }
@@ -49,7 +49,7 @@ export default async function Page({ params }) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://yourdomain.com/blog/${blog.slug}`,
+      "@id": `https://preci.co.za/blog/${blog.slug}`,
     },
   };
 
