@@ -370,7 +370,7 @@ Give South African consumers and workers a clear, fast, and honest understanding
   summary_preview: preview,
   full_summary: fullSummary,
   tokens_used: tokens,
-  paid: true,
+  paid: false,
 
 
       })
