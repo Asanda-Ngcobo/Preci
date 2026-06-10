@@ -34,7 +34,7 @@ export default async function SummaryPreview({ summary, profile, mysummaries }) 
 contract_type={contract_type}
 price_zar={price_zar}
 summary_preview={summary_preview}
-paid={is_paid}
+paid={paid}
 summaryId={id}
 user={profile}/> : <FullSummary
 full_summary={full_summary}
