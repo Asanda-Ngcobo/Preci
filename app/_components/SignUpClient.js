@@ -43,7 +43,7 @@ const handleSubmit = (formData) => {
       return;
     }
     // ✅ Only reached if no error was thrown
-    redirect(`/auth/signup-success`);
+    redirect(`/users`);
   });
 };
     return (
