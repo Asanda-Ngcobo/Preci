@@ -8,8 +8,7 @@ import { useRouter } from "next/navigation";
 
 
 
-
-function UploadContainer({user}) {
+function UploadContainer() {
    const {file} = useMenu();
     const [open, setOpen] = useState(false)
     const [status, setStatus] = useState("idle");
@@ -19,7 +18,6 @@ function UploadContainer({user}) {
     }
     const router = useRouter();
 
-    
 // async function handleProcess() {
 //   if (!file) return;
 
@@ -53,7 +51,6 @@ function UploadContainer({user}) {
 async function handleProcess() {
   if (!file) return;
 
-
   setStatus("reading");
 
   const formData = new FormData();
@@ -82,17 +79,7 @@ async function handleProcess() {
 
     // Small delay before redirect (feels intentional)
     setTimeout(() => {
-    if(user){
-
-router.push(`/users/${data.summaryId}`)
-
-}else{
-
-router.push(
-`/${data.summaryId}?token=${data.guestToken}`
-)
-
-}
+      router.push(`/users/${data.summaryId}`);
     }, 700);
 
   } catch (err) {
@@ -154,13 +141,13 @@ router.push(
    items-center  z-20
    bg-white p-4 text-sm text-gray-700">
     <p className={status === "reading" ? "font-medium" : ""}>
-      {status !== "idle" && "1. Document uploaded"}
+      {status !== "idle" && "✓ Document uploaded"}
     </p>
     <p className={status === "summarizing" ? "font-medium text-(--accent-secondary)" : ""}>
-      2. Understanding the contract
+      Understanding the contract
     </p>
     <p className={status === "saving" ? "font-medium text-(--accent-secondary)" : ""}>
-      3. Preparing your summary
+      Preparing your summary
     </p>
   </div>
 )}
