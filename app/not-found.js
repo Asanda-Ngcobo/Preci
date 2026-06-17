@@ -10,7 +10,7 @@ export default function NotFound({}) {
   
         <button className='inline-block bg-accent-500 text-primary-800 px-6 py-3 text-lg'
         >
-          <Link href="/">Return Home</Link>
+          <Link href="/users">Return Home</Link>
         </button>
       </main>
     );
