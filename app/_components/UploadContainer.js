@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 
 
-function UploadContainer() {
+
+function UploadContainer({user}) {
    const {file} = useMenu();
     const [open, setOpen] = useState(false)
     const [status, setStatus] = useState("idle");
@@ -18,6 +19,7 @@ function UploadContainer() {
     }
     const router = useRouter();
 
+    
 // async function handleProcess() {
 //   if (!file) return;
 
@@ -51,6 +53,7 @@ function UploadContainer() {
 async function handleProcess() {
   if (!file) return;
 
+
   setStatus("reading");
 
   const formData = new FormData();
@@ -79,7 +82,17 @@ async function handleProcess() {
 
     // Small delay before redirect (feels intentional)
     setTimeout(() => {
-      router.push(`/users/${data.summaryId}`);
+    if(user){
+
+router.push(`/users/${data.summaryId}`)
+
+}else{
+
+router.push(
+`/${data.summaryId}?token=${data.guestToken}`
+)
+
+}
     }, 700);
 
   } catch (err) {
@@ -123,7 +136,7 @@ async function handleProcess() {
       cursor-pointer
   
       ${!file ? 'bg-gray-400': `bg-(--accent-primary)
-      hover:bg-(--accent-secondary)`    }`}
+      hover:bg-(--accent-secondary) text-white`    }`}
      
     
   >
