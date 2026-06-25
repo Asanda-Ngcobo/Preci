@@ -379,7 +379,7 @@ const guestToken = user
 
     full_summary: fullSummary,
 
-    paid: false,
+    paid: true,
 
     price_zar: price,
     tokens_used: tokens
