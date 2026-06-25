@@ -18,7 +18,7 @@ function SideBar({ data, userSummaries }) {
       className={`
         md:flex md:w-[15%] w-[60%]
         h-screen fixed md:static
-        flex-col bg-white z-10 md:z-0
+        flex-col bg-white z-30 md:z-0
         ${menuOpen ? 'flex' : 'hidden md:flex'}
       `}
     >

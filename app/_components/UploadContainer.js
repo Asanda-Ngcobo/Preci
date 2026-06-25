@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 
 
-function UploadContainer() {
+
+function UploadContainer({user}) {
    const {file} = useMenu();
     const [open, setOpen] = useState(false)
     const [status, setStatus] = useState("idle");
@@ -18,6 +19,7 @@ function UploadContainer() {
     }
     const router = useRouter();
 
+    
 // async function handleProcess() {
 //   if (!file) return;
 
@@ -51,6 +53,7 @@ function UploadContainer() {
 async function handleProcess() {
   if (!file) return;
 
+
   setStatus("reading");
 
   const formData = new FormData();
@@ -79,7 +82,17 @@ async function handleProcess() {
 
     // Small delay before redirect (feels intentional)
     setTimeout(() => {
-      router.push(`/users/${data.summaryId}`);
+    if(user){
+
+router.push(`/users/${data.summaryId}`)
+
+}else{
+
+router.push(
+`/${data.summaryId}?token=${data.guestToken}`
+)
+
+}
     }, 700);
 
   } catch (err) {
@@ -91,8 +104,8 @@ async function handleProcess() {
     return (
 
       <>
-       <div className="border border-(--text-secondary) rounded-3xl
-          h-12 w-[90%] md:w-[60%] mx-auto mt-40 " >
+       <div className="border border-(--text-secondary) rounded-2xl
+          h-fit w-[90%] md:w-[60%] mx-auto mt-6 " >
              {open && <UploadOptions remove={handleUpload}/>}
 
             
@@ -119,15 +132,15 @@ async function handleProcess() {
   onClick={handleProcess}
     className={`
        flex items-center justify-center
-      h-8 w-12 rounded-2xl
+      h-8 w-fit p-2 rounded-xl
       cursor-pointer
   
-      ${!file ? 'bg-gray-400': `bg-(--accent-primary)
-      hover:bg-(--accent-secondary)`    }`}
+       bg-(--accent-primary)
+      hover:bg-(--accent-secondary)  font-bold text-amber-50  `}
      
     
   >
-    <ArrowRight />
+    {!file ? <ArrowRight /> : 'Upload'}
   </button>
 
 </div>

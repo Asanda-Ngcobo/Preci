@@ -34,7 +34,8 @@ function UploadOptions() {
   };
 
   return (
-    <div className="w-60 -mx-5 max-w-sm absolute -mt-40">
+    <>
+    {!file && <div className="w-40 -mx-5 max-w-sm absolute -mt-45 z-20">
       <div
         onClick={() => inputRef.current.click()}
         onDragOver={(e) => {
@@ -50,7 +51,7 @@ function UploadOptions() {
               : "border-gray-300 bg-white hover:border-gray-400"
           }`}
       >
-        <div className="flex flex-col items-center text-center gap-2">
+       <div className="flex flex-col items-center text-center gap-2">
           <Upload size={28} className="text-gray-500" />
           <p className="text-sm font-medium text-gray-700">
             Upload a contract
@@ -69,12 +70,14 @@ function UploadOptions() {
         />
       </div>
 
+    
+    </div>} 
       {/* File Preview */}
       {file && (
-        <div className="mt-3 flex items-center justify-between rounded-xl bg-gray-50 px-4 py-2">
+        <div className="max-w-80 md:max-w-[90%]  flex items-center justify-between rounded-xl bg-gray-50 px-4 py-5 mx-auto">
           <div className="flex items-center gap-2">
             <FileText size={18} className="text-gray-500" />
-            <span className="text-xs text-gray-700 truncate max-w-50">
+            <span className="text-xs text-gray-700 truncate max-w-60  md:max-w-full">
               {file.name}
             </span>
           </div>
@@ -85,8 +88,8 @@ function UploadOptions() {
             <X size={16} />
           </button>
         </div>
-      )}
-    </div>
+      )}</>
+   
   );
 }
 

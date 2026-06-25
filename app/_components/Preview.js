@@ -4,14 +4,19 @@ import { X } from "@deemlol/next-icons";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import Disclaimer from "./Disclaimer";
+import { useRouter } from "next/navigation";
+import GuestBanner from "./GuestBunner";
 
-function Preview({ summary_preview, summaryId, user }) {
+'http://localhost:3000/68f69c83-067f-420f-ac1c-d08bc88715e7?token=0f68ba4e-ea66-48be-a16e-258f8597c2a9'
+function Preview({ summary_preview, summaryId, user, price_zar, token, profile }) {
   const [priceData, setPriceData]           = useState(null);
   const [loadingPrice, setLoadingPrice]     = useState(true);
   const [paying, setPaying]                 = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [showGuest, setShowguest] = useState(false);
+      const router = useRouter();
 
-  const discountClaimed = user?.referral_discount_used === true;
+  const discountClaimed = profile?.referral_discount_used === true;
 
   const fetchPrice = useCallback(async () => {
     try {
@@ -41,7 +46,7 @@ function Preview({ summary_preview, summaryId, user }) {
       const res  = await fetch("/api/payment/initiate", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ summaryId }),
+        body:    JSON.stringify({ summaryId, token, email }),
       });
       const data = await res.json();
 
@@ -58,13 +63,25 @@ function Preview({ summary_preview, summaryId, user }) {
     }
   }
 
+
   const discountActive = priceData?.discount ?? false;
   const displayPrice   = loadingPrice || priceData?.price_zar == null
     ? "..."
     : `R${Number(priceData.price_zar).toFixed(2)}`;
 
+
+
+function handleUnlock() {
+
+
+
+        router.push(`/${summaryId}/checkout?token=${token}`);
+
+  
+
+}
   return (
-    <div className="w-full h-full flex flex-col items-center gap-4">
+    <div className="w-screen h-full flex flex-col items-center gap-4">
 
       <button
         className="h-8 w-8 flex justify-center items-center top-3
@@ -89,21 +106,26 @@ function Preview({ summary_preview, summaryId, user }) {
       </div>
 
       <button
-        className="mt-4 w-[60%] cursor-pointer rounded-xl bg-(--accent-primary) hover:opacity-85 py-2 text-white disabled:opacity-50"
-        onClick={payWithPaystack}
+        className="mt-4 w-[60%] cursor-pointer rounded-xl bg-(--accent-primary)
+         hover:opacity-85 py-2 text-white disabled:opacity-50"
+        onClick={handleUnlock}
         disabled={loadingPrice || paying}
       >
         {paying ? "Redirecting..." : "Unlock Full Summary"}
       </button>
 
-      {!loadingPrice && !discountActive && !discountClaimed && (
+      {!loadingPrice && !discountActive && !discountClaimed && user && (
         <Link href={`/users/${summaryId}/referral`} className="w-[60%]">
           <button className="w-full cursor-pointer rounded-xl bg-white hover:opacity-85 py-2 text-black border-2">
             Claim 50% Off
           </button>
         </Link>
       )}
-
+  <button className=" w-[60%] cursor-pointer
+    hover:opacity-85 py-2 text-(--text-secondary) underline"
+     onClick={() => setShowguest(prev => !prev)}>
+            Not Now
+          </button>
       {showDisclaimer && (
         <Disclaimer summaryId={summaryId}
         displayPrice={displayPrice}
@@ -111,7 +133,20 @@ function Preview({ summary_preview, summaryId, user }) {
         discountActive={discountActive}
         paying={paying}
         payWithPaystack={payWithPaystack}
-        discountClaimed={discountClaimed} />
+        discountClaimed={discountClaimed}
+        user={user} />
+      )}
+
+          {showGuest && (
+        <GuestBanner summaryId={summaryId}
+        displayPrice={displayPrice}
+        loadingPrice={loadingPrice}
+        discountActive={discountActive}
+        paying={paying}
+        payWithPaystack={payWithPaystack}
+        discountClaimed={discountClaimed}
+        user={user}
+        token={token} />
       )}
     </div>
   );

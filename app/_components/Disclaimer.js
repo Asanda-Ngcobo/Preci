@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 function Disclaimer({ loadingPrice, summaryId,
-  payWithPaystack, displayPrice, discountActive, discountClaimed, paying }) {
+  payWithPaystack, displayPrice, discountActive, discountClaimed, paying, user }) {
 
   
 
@@ -25,7 +25,8 @@ Every year, South Africans lose thousands of rands by signing agreements without
 </p>
 
 <p className="text-md text-gray-700 text-center max-w-md">
-Unlock the full summary for <span className="font-semibold">{displayPrice}</span> to clearly see your obligations, key risks, and important red flags before you sign.
+Unlock the full summary for <span className="font-semibold">{displayPrice}</span> 
+to clearly see your obligations, key risks, and important red flags before you lose hundreds of rands in hidden fees & penalties.
 </p>
 
 

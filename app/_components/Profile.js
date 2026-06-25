@@ -11,7 +11,8 @@ function Profile({ data }) {
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
 
-  const { full_name, name, avatar_url, email } = data.user_metadata;
+  if(!data) return null
+  const { full_name, name, avatar_url, email } = data.user_metadata ?? {};
   
 
   function handleShowProfile() {

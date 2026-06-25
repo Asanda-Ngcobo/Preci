@@ -8,32 +8,54 @@ import { createClient } from "./server";
 export async function getSummary(summaryId) {
   
  const supabase = await createClient()
-
+ const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   const { data, error } = await supabase
     .from("summaries")
     .select("*")
     .eq("id", summaryId)
+    .eq("user_id", user.id)
     .single();
 
   if (error) {
-    console.error("Error fetching summary:", error.message);
+    console.error("Error fetching summary:",
+       error.message);
     return null;
   }
 
   return data;
 }
 
+export async function getGuestSummary(summaryId, token){
+ const supabase = await createClient()
+  const { data, error } = await supabase
+.from("summaries")
+.select("*")
+.eq("id", summaryId)
+.eq("summary_token", token)
+.is("user_id", null)
+.single();
 
+ if (error) {
+    console.error("Error fetching summary:",
+       error.message);
+    return null;
+  }
+  return data;
+}
 
-export async function getSummaries(userId) {
+export async function getSummaries() {
   const supabase =  await createClient();
-
+ const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   const { data, error } = await supabase
     .from("summaries")
     .select("*")
-    .eq("user_id", userId)
+    .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
   if (error) {
@@ -80,3 +102,9 @@ export async function getBlogBySlug(slug) {
 
   return data;
 }
+
+
+
+
+
+

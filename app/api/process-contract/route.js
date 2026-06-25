@@ -15,9 +15,9 @@ export async function POST(req) {
       error,
     } = await supabase.auth.getUser();
 
-    if (!user || error) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    // if (!user || error) {
+    //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    // }
 
     const formData = await req.formData();
 const file = formData.get("file");
@@ -361,25 +361,35 @@ Give South African consumers and workers a clear, fast, and honest understanding
        const preview =
     fullSummary.split(" ").slice(0, 50).join(" ") + "...";
 //Store Only Summary
+
+const guestToken = user
+  ? null
+  : crypto.randomUUID();
+  
     const { data, error: dbError } = await supabase
       .from("summaries")
-      .insert({
-        
-  user_id: user.id,
-  contract_type: contractType,
-  summary_preview: preview,
-  full_summary: fullSummary,
-  tokens_used: tokens,
-  paid: true,
+  .insert({
+    user_id: user?.id ?? null,
 
+    summary_token: guestToken,
 
-      })
+    contract_type: contractType,
+
+    summary_preview: preview,
+
+    full_summary: fullSummary,
+
+    paid: false,
+
+    price_zar: price,
+    token_used: tokens
+})
       .select("id")
       .single();
 
     if (dbError) throw dbError;
 
-   return NextResponse.json({ summaryId: data.id });
+   return NextResponse.json({ summaryId: data.id, guestToken });
 
   } catch (err) {
     console.error("🔥 process-contract error:", err);

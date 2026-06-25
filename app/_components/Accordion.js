@@ -45,7 +45,7 @@ export default function Accordion() {
   const [curOpen, setCurOpen] = useState(null);
 
   return (
-    <div className=" lg:max-w-[70%] mx-auto my-24 flex flex-col gap-6">
+    <div className="w-full lg:max-w-[70%] mx-auto my-24 flex flex-col gap-6">
       {data.map((item, index) => (
         <AccordionItem
           key={item.id}

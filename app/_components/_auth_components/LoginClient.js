@@ -11,21 +11,14 @@ function LoginClient() {
   const [isEmail, setIsEmail] = useState(false)
 
   return (
-    <main className="mx-auto w-[85%] md:w-[30%]">
-      <div className="mb-6 text-center">
-        <h1 className="text-lg md:text-2xl font-bold">
-          Whether You Have or Is Taking A
-        </h1>
-        <ContractTypeRotator />
-        <h3 className="text-(--text-secondary) md:text-xs text-[12px]">
-          Upload the agreement and get a clear, precise summary of what you committing or have committed to.
-        </h3>
-      </div>
-
-      <div className="rounded-3xl border border-gray-300 p-5">
-        <p className="mb-4 text-center text-sm text-gray-600">
+    <main className="mx-auto w-screen  h-screen flex justify-center
+     items-center z-10 top-0 fixed bg-white">
+      
+    
+      <div className="rounded-2xl  p-5 w-[85%] md:w-[30%]">
+        {/* <p className="mb-4 text-center text-sm text-gray-600">
           Please log in and start uploading
-        </p>
+        </p> */}
 
         <SocialAuth />
 

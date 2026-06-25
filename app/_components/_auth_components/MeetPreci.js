@@ -12,40 +12,41 @@ function MeetPreci() {
         {/* Intro */}
         <div className="mb-12 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Salespeople sell. <span className="text-(--accent-primary)">We explain.</span>
+            We found <span className="text-(--accent-primary)">hidden clauses</span> in thousands 
+            of South African contracts
           </h1>
           <p className="mt-4 max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
-            Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms, 
-            <span className="font-medium"> 
+            Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms, 
+            <span className="font-medium">{" "}
               before they cost you thousands of rands.</span>
           </p>
+       
         </div>
-
+       
         {/* How it works */}
-        <div>
+        {/* <div>
           <h2 className="mb-8 text-center text-2xl md:text-3xl font-semibold text-gray-800">
             How it works
           </h2>
 
           <div className="flex flex-col md:flex-row gap-10 md:gap-8">
-            {/* Left column – Video */}
-            {/* <div className="md:w-1/2 w-full flex justify-center items-center">
+        
+            <div className="md:w-1/2 w-full flex justify-center items-center">
               <div className="w-full md:w-[90%] rounded-md
                shadow-lg overflow-hidden">
                 <Video />
               </div>
-            </div> */}
+            </div> 
 
-            {/* Right column – Accordion */}
             <div className=" w-full flex flex-col justify-center">
               <div className=" p-6">
                 <Accordion />
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-      <Testimonials/>
+      {/* <Testimonials/> */}
     </section>
   );
 }

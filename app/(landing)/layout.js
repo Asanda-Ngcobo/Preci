@@ -172,7 +172,7 @@ export default function RootLayout({ children }) {
           <Discount/>
           <Nav/>
          {children}
-   <MeetPreci/>
+
   
      <Footer/>
         </MenuProvider>

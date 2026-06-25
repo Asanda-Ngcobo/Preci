@@ -1,8 +1,11 @@
-import { ChevronLeft } from "@deemlol/next-icons";
-import { revalidatePath } from "next/cache";
+'use client'
+import { ChevronLeft, X } from "@deemlol/next-icons";
 import Link from "next/link";
+import { useState } from "react";
+import GuestBanner from "./GuestBunner";
 
-function FullSummary({ full_summary, mysummaries, profile }) {
+function FullSummary({ full_summary, mysummaries, profile, summaryId, user, token }) {
+    const [showGuest, setShowGuest] = useState(false);
   const addEmojiToHeading = (heading) => {
     const lower = heading.toLowerCase();
 
@@ -25,23 +28,37 @@ function FullSummary({ full_summary, mysummaries, profile }) {
     .trim()
     .split("\n");
     
-const isNew = mysummaries.length === 1 && !profile.surveyed;
+const isNew = profile && mysummaries?.length < 1 && !profile.surveyed;
 
   return (
     <>
       <div className="w-full -mt-25 md:hidden">
-        <Link href={isNew ? '/users/quiz': '/users'}> <button className="bg-(--accent-primary)
+        {/* {profile && <Link href={isNew ? '/users/quiz': '/users'}> <button className="bg-(--accent-primary)
+            rounded-full  
+            h-8 w-8 flex justify-center items-center
+            cursor-pointer absolute
+            active:bg-gray-500"
+            
+        >
+                <ChevronLeft/>
+
+            </button></Link>
+            }
+
+             {!profile && <button className="
             rounded-full  
             h-8 w-8 flex justify-center items-center
             cursor-pointer absolute"
-        >
-                <ChevronLeft/>
-            </button></Link>
-
+            
+              onClick={() => setShowguest(prev => !prev)}>
+        
+                <X/>
+            </button>
+}  */}
     </div>
       <div
       className="
-        rounded-2xl bg-white p-5 w-full mx-auto
+        rounded-2xl bg-white p-5 w-full mx-auto my-10
         max-h-[85vh] 
         overflow-y-auto
         overscroll-contain
@@ -92,9 +109,30 @@ const isNew = mysummaries.length === 1 && !profile.surveyed;
                 text-xl ">
                    Préci
                 </span></h2> */}
-      
+     
+
+          {profile ? <Link href={isNew ? '/users/quiz': '/users'}> <button  className="mt-4 w-full
+           cursor-pointer rounded-xl bg-(--accent-primary)
+         hover:opacity-85 py-2 text-white disabled:opacity-50
+         flex justify-center items-center"
+            
+        >
+               Leave
+
+            </button></Link>:  <button className=" w-full cursor-pointer
+    hover:opacity-85 py-2 text-(--text-secondary)  text-center "
+     onClick={() => setShowGuest(prev => !prev)}>
+            Leave
+          </button>}
       </div>
     </div>
+
+       {showGuest && (
+            <GuestBanner summaryId={summaryId}
+
+            user={user}
+            token={token} />
+          )}
     </>
   
   );

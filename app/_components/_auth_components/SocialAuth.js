@@ -36,7 +36,7 @@ setError(error instanceof Error ? error.message : 'An error occurred')
         handleSocialLogin()
       }}
     >
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 bg-white">
         {error && <p className="text-sm text-destructive-500">{error}</p>}
         <button
           type="submit"

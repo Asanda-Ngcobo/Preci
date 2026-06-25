@@ -1,7 +1,9 @@
-import LoginPhone from "@/app/_components/_auth_components/LoginPhone"
-import MeetPreci from "@/app/_components/_auth_components/MeetPreci"
-import MeetPreciPhone from "@/app/_components/_auth_components/MeetPreciPhone"
-import PhoneImage from "@/app/_components/PhoneImage"
+
+import Main from "@/app/_components/Main";
+import SearchView from "@/app/_components/SearchView";
+import SideBar from "@/app/_components/SideBar";
+import { getSummaries } from "@/app/_lib/supabase/apis";
+import { createClient } from "@/app/_lib/supabase/server";
 import Script from "next/script";
 
 
@@ -136,12 +138,23 @@ keywords: [
 
 
 
-function Page() {
+async function Page() {
+
+    const supabase = await createClient();
+  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  
+  const mysummaries = user
+    ? await getSummaries(user.id)
+    : [];
+  
   return (
-    <>
-      <div className="flex md:flex-row
-    gap-6 md:gap-2 flex-col-reverse max-h-fit mt-15
-     items-center justify-center ">
+    <div className="flex">
+  
+   
+    
        <Script
   type="application/ld+json"
   dangerouslySetInnerHTML={{
@@ -174,14 +187,14 @@ function Page() {
 ),
   }}
 />
-      <LoginPhone />
-      {/* <Testimonials/> */}
-      <PhoneImage/>
-    </div>
-    <MeetPreciPhone/>
-    </>
-  
-  )
+     
+   
+
+     {user ? <SideBar data={user ?? null} userSummaries={mysummaries} />: ''}
+    <Main data={user ?? null} />
+    <SearchView />
+  </div>
+);
 }
 
 export default Page

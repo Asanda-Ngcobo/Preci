@@ -1,14 +1,18 @@
 import Script from "next/script";
-import LoginClient from "../_components/_auth_components/LoginClient";
 
-import HeroImage from "../_components/HeroImage";
+import { createClient } from "../_lib/supabase/server";
+import SideBar from "../_components/SideBar";
+import Main from "../_components/Main";
+import SearchView from "../_components/SearchView";
+import { getSummaries } from "../_lib/supabase/apis";
+
 
 export const metadata = {
   metadataBase: new URL("https://preci.co.za"),
 
   title: {
     default:
-      "Preci | Understand Contracts Before They Cost You Money",
+      "Preci | Understand Contracts Before Your Employer Takes Advantage Of You",
       
     template: "%s | Preci",
   },
@@ -121,14 +125,21 @@ export const metadata = {
 
 
 
+export default async function Home() {
+  const supabase = await createClient();
 
+const {
+  data: { user },
+} = await supabase.auth.getUser();
 
-function Page() {
-  return (
-    <div className="flex md:flex-row
-    gap-6 md:gap-2 flex-col-reverse max-h-fit mt-15
-     items-center justify-center ">
-            <Script
+const mysummaries = user
+  ? await getSummaries(user.id)
+  : [];
+
+return (
+  <div className="flex"
+  >
+         <Script
   type="application/ld+json"
   dangerouslySetInnerHTML={{
     __html: JSON.stringify(
@@ -153,12 +164,9 @@ function Page() {
 ),
   }}
 />
-      <LoginClient />
-      {/* <Testimonials/> */}
-      <HeroImage/>
-    </div>
-  )
+    {user ? <SideBar data={user ?? null} userSummaries={mysummaries} />: ''}
+    <Main data={user ?? null} />
+    <SearchView />
+  </div>
+);
 }
-
-export default Page
-

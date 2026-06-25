@@ -1,49 +1,61 @@
-
-
-
-import FullSummary from "./FullSummary";
 import Preview from "./Preview";
+import FullSummary from "./FullSummary";
 
+export default function SummaryPreview({
+  summary,
+  profile,
+  mysummaries,
+  user,
+  token,
+}) {
+  const {
+    contract_type,
+    summary_preview,
+    full_summary,
+    paid,
+    price_zar,
+    id,
+  } = summary;
 
-export default async function SummaryPreview({ summary, profile, mysummaries }) {
-  
-  const {contract_type, summary_preview, full_summary,
-     price_zar, is_paid, id, paid} = summary;
-  
   return (
-    <>
-   <div className="text-lg font-semibold mb-8 sticky top-4 z-10 pb-2">
-       <h1>{contract_type} Summary</h1> 
-       <p className="text-xs font-medium text-center">Powered By <span className="font-sans
-         text-(--accent-primary) font-bold
-                text-xl ">
-                   Préci AI
-                </span></p>  
-      </div>
-      
+    <main className="flex flex-col">
+      <div className="sticky top-4 z-10 mb-8">
+        <h1 className="text-lg font-semibold text-center">
+          {contract_type} Summary
+        </h1>
 
-             <div className="rounded-2xl p-6 flex flex-col
-     justify-center items-center
-    
-    md:w-[70%]  my-auto mx-auto">
-      
-    
-      
-     
-{!paid ? <Preview
-contract_type={contract_type}
-price_zar={price_zar}
-summary_preview={summary_preview}
-paid={paid}
-summaryId={id}
-user={profile}/> : <FullSummary
-full_summary={full_summary}
-contract_type={contract_type}
-mysummaries={mysummaries}
-profile={profile}/>}
-     
-    </div>
-            </>
-   
+        <p className="text-center text-xs">
+          Powered by{" "}
+          <span className="font-bold text-(--accent-primary)">
+            Préci AI
+          </span>
+        </p>
+      </div>
+
+      <div className="w-full md:w-[70%] mx-auto p-6 rounded-2xl">
+
+        {paid ? (
+          <FullSummary
+            full_summary={full_summary}
+            contract_type={contract_type}
+            profile={profile}
+            mysummaries={mysummaries}
+            summaryId={id}
+            user={user}
+            token={token}
+          />
+        ) : (
+          <Preview
+            summary_preview={summary_preview}
+            summaryId={id}
+            user={user}
+            profile={profile}
+            token={token}
+            price_zar={price_zar}
+          />
+        )}
+
+      </div>
+    </main>
   );
 }

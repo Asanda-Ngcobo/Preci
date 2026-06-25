@@ -1,16 +1,18 @@
 
+import MeetPreci from "./_auth_components/MeetPreci"
 import Middle from "./Middle"
 import Nav from "./Nav"
 
 
 function Main({data}) {
    
+    
     return (
         <div className="
      bg-background font-inter md:w-[85%] w-[90%] mx-auto  ">
-        <Nav
-        data={data}/>
+       {data ? <Nav data={data}/> : ''} 
         <Middle data={data}/>
+       {!data && <MeetPreci/>} 
     
     </div>
     )
