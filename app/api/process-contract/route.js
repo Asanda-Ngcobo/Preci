@@ -382,7 +382,7 @@ const guestToken = user
     paid: false,
 
     price_zar: price,
-    token_used: tokens
+    tokens_used: tokens
 })
       .select("id")
       .single();

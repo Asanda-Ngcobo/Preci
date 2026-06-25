@@ -149,7 +149,7 @@ router.push(
         </div>
        {status !== "idle" && (
   <div className=" rounded-2xl w-full
-  h-full top-0 left-0
+  h-screen top-0 left-0
   absolute flex flex-col justify-center
    items-center  z-20
    bg-white p-4 text-sm text-gray-700">
