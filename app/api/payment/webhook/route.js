@@ -18,7 +18,7 @@ export async function POST(req) {
 
     const expectedSig = createHmac(
       "sha512",
-      process.env.PAYSTACK_TEST_SECRET_KEY
+      process.env.PAYSTACK_SECRET_KEY
     )
       .update(rawBody)
       .digest("hex");
