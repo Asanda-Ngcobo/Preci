@@ -135,8 +135,8 @@ router.push(
       h-8 w-fit p-2 rounded-xl
       cursor-pointer
   
-       bg-(--accent-primary)
-      hover:bg-(--accent-secondary)  font-bold text-amber-50  `}
+       
+      hover:bg-(--accent-secondary)  font-bold text-amber-50 ${file ? 'bg-(--accent-primary)': 'bg-(--accent-secondary)'} `}
      
     
   >
@@ -154,13 +154,13 @@ router.push(
    items-center  z-20
    bg-white p-4 text-sm text-gray-700">
     <p className={status === "reading" ? "font-medium" : ""}>
-      {status !== "idle" && "1. Document uploaded"}
+      {status !== "idle" && "✓ Document uploaded"}
     </p>
     <p className={status === "summarizing" ? "font-medium text-(--accent-secondary)" : ""}>
-      2. Understanding the contract
+      Understanding the contract
     </p>
     <p className={status === "saving" ? "font-medium text-(--accent-secondary)" : ""}>
-      3. Preparing your summary
+      Preparing your summary
     </p>
   </div>
 )}

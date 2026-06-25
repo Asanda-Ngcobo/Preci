@@ -7,7 +7,7 @@ import { signUpUser } from "../_lib/actions";
 import { Check, Eye, EyeOff, X } from "@deemlol/next-icons";
 import { redirect } from "next/navigation";
 
-function SignUpClient({ setSignUp, SetSignUpSuccess }) {
+function SignUpClientGuest({ setSignUp }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
@@ -38,7 +38,7 @@ function SignUpClient({ setSignUp, SetSignUpSuccess }) {
         redirect(`/auth/error`)
         return
       }
-      redirect(`/users`)
+      redirect(`/users/${summaryId}?summaryId=${summaryId}&token=${token}`)
     })
   }
 
@@ -154,4 +154,4 @@ function SignUpClient({ setSignUp, SetSignUpSuccess }) {
   )
 }
 
-export default SignUpClient
+export default SignUpClientGuest

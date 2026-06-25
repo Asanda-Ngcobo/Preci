@@ -7,6 +7,7 @@ import ContractTypeRotator from "../ContractTypes"
 import EmailLogin from "./EmailLogin"
 import { Video } from "../Video"
 import GuestSocialAuth from "./GuestSocialAuth"
+import EmailLoginGuest from "./EmailLoginGuest"
 
 function GuestLoginClient({summaryId, token}) {
   const [isEmail, setIsEmail] = useState(false)
@@ -47,7 +48,8 @@ function GuestLoginClient({summaryId, token}) {
           <Link href='/terms' className="underline">Terms Of Use.</Link>
         </p>
 
-        {isEmail && <EmailLogin setIsEmail={setIsEmail} />}
+        {isEmail && <EmailLoginGuest setIsEmail={setIsEmail}
+        summaryId={summaryId} token={token} />}
       </div>
     </main>
   )
