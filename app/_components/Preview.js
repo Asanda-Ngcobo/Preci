@@ -86,13 +86,13 @@ router.push(`/${summaryId}/checkout?token=${token}`);
   return (
     <div className="w-full h-full flex flex-col items-center gap-4 left-0">
 
-      <button
+      {profile && <button
         className="h-8 w-8 flex justify-center items-center top-3
          left-3 rounded-full text-(--text-secondary) absolute "
         onClick={() => setShowDisclaimer(prev => !prev)}
       >
         <X />
-      </button>
+      </button>}
 
       <p className="text-sm text-gray-700 text-center">
         {summary_preview}
@@ -110,7 +110,7 @@ router.push(`/${summaryId}/checkout?token=${token}`);
 
       <button
         className="mt-4 w-[60%] cursor-pointer rounded-xl bg-(--accent-primary)
-         hover:opacity-85 py-2 text-white disabled:opacity-50"
+         hover:opacity-85 py-2 text-white disabled:opacity-50 active:bg-(--accent-secondary)" 
         onClick={handleUnlock}
         disabled={loadingPrice || paying}
       >
@@ -124,11 +124,13 @@ router.push(`/${summaryId}/checkout?token=${token}`);
           </button>
         </Link>
       )}
-  <button className=" w-[60%] cursor-pointer
+
+      {!profile &&  <button className=" w-[60%] cursor-pointer
     hover:opacity-85 py-2 text-(--text-secondary) underline"
      onClick={() => setShowguest(prev => !prev)}>
             Not Now
-          </button>
+          </button>}
+ 
       {showDisclaimer && (
         <Disclaimer summaryId={summaryId}
         displayPrice={displayPrice}

@@ -80,7 +80,7 @@ if (user) {
   if (user) {
     const { data } = await supabase
       .from("profiles")
-      .select("surveyed, referral_discount_used")
+      .select("*")
       .eq("id", user.id)
       .single();
 

@@ -223,6 +223,7 @@ Processing Fee
         py-3
         outline-none
         focus:border-(--accent-primary)
+        active:bg-(--accent-secondary)
       "
     />
 
@@ -232,6 +233,8 @@ Processing Fee
 
   </div>
 )}
+
+
 <button
 
 onClick={handleCheckout}
