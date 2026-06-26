@@ -73,14 +73,18 @@ function Preview({ summary_preview, summaryId, user, price_zar, token, profile }
 function handleUnlock() {
 
 
-
-        router.push(`/${summaryId}/checkout?token=${token}`);
+      if(!user){
+router.push(`/${summaryId}/checkout?token=${token}`);
+      }
+        else{
+          router.push(`/${summaryId}/checkout`)
+        }
 
   
 
 }
   return (
-    <div className="w-screen h-full flex flex-col items-center gap-4">
+    <div className="w-full h-full flex flex-col items-center gap-4 left-0">
 
       <button
         className="h-8 w-8 flex justify-center items-center top-3

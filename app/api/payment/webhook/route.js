@@ -76,12 +76,13 @@ export async function POST(req) {
     }
 
     // verify amount
-    const expected = Math.round(pending.amount_zar * 100);
+  const expected = Math.round(pending.amount_zar * 100);
+const amountDiff = Math.abs(amount - expected);
 
-    if (amount !== expected) {
-      console.error("Webhook: amount mismatch", { amount, expected, reference });
-      return Response.json({ error: "Amount mismatch" }, { status: 400 });
-    }
+if (amountDiff > 2) { // allow 2 cent tolerance
+  console.error("Webhook: amount mismatch", { amount, expected, reference });
+  return Response.json({ error: "Amount mismatch" }, { status: 400 });
+}
 
     // 🔥 SINGLE SOURCE OF TRUTH UPDATE
     const { error: updateErr } = await supabase
@@ -100,15 +101,19 @@ export async function POST(req) {
     console.log("Webhook: marked summary paid", { summaryId, reference });
 
     // cleanup — non-fatal if this fails, the payment itself already succeeded
-    const { error: cleanupErr } = await supabase
-      .from("payment_references")
-      .delete()
-      .eq("id", pending.id);
+  // Replace the delete at the end with an update
+const { error: cleanupErr } = await supabase
+  .from("payment_references")
+  .update({ processed: true, processed_at: new Date().toISOString() })
+  .eq("id", pending.id);
 
     if (cleanupErr) {
       console.error("Webhook: cleanup of payment_references failed (non-fatal)", cleanupErr);
     }
-
+if (pending.processed) {
+  console.log("Webhook: already processed, skipping", reference);
+  return Response.json({ ok: true }); // return 200 so Paystack stops retrying
+}
     return Response.json({ ok: true });
   } catch (err) {
     console.error("Webhook: unexpected error", err);

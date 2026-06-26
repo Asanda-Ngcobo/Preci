@@ -105,9 +105,9 @@ export async function POST(req) {
           userId: user?.id ?? null,
           guest: !user,
         },
-       callback_url: user
-  ? `/users/${summaryId}`
-  : `/${summaryId}?token=${token}`,
+      callback_url: user
+  ? `${process.env.NEXT_PUBLIC_BASE_URL}/users/${summaryId}`
+  : `${process.env.NEXT_PUBLIC_BASE_URL}/${summaryId}?token=${token}`,
       }),
     }
   );
