@@ -3,49 +3,69 @@
 import Link from "next/link"
 import SignInButton from "./SignInButton"
 import { useState, useTransition } from "react"
-import { ChevronLeft } from "@deemlol/next-icons"
-import SignUpClient from "../SignUpClient"
+import { ChevronLeft, Eye, EyeOff } from "@deemlol/next-icons"
+
 import { loginUser } from "@/app/_lib/actions"
 import toast from "react-hot-toast"
 import SignUpSucess from "./SignUpSucess"
 import { useRouter } from "next/navigation"
+import SignUpClientGuest from "../SignUpClientGuest"
+import { createClient } from "@/app/_lib/supabase/client"
 
-function EmailLoginGuest({ setIsEmail }) {
+function EmailLoginGuest({ setIsEmail, summaryId, token }) {
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
   const [signup, setSignUp] = useState(false)
   const [isPending, startTransition] = useTransition()
   const [signupSuccess, SetSignupSuccess] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter()
 
-  const handleSubmit = (formData) => {
-    startTransition(async () => {
-      try {
-        await loginUser(formData)
+ const handleSubmit = (formData) => {
+  startTransition(async () => {
+    try {
+      await loginUser(formData);
 
-        toast.success('Signin successful! Redirecting...', {
-          duration: 4000,
-          style: {
-            background: '#2F8F83',
-            color: '#fff',
-          },
-        })
+      const supabase = createClient();
 
-        setTimeout(() => {
-          router.push(`users/${summaryId}&summaryId=${summaryId}&token=${token}`)
-        }, 500)
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-      } catch (error) {
-        toast.error('Something went wrong', {
-          duration: 4000,
-          style: {
-            background: '#2F8F83',
-            color: '#fff',
-          },
-        })
+      if (summaryId && token && user) {
+        const { error } = await supabase
+          .from("summaries")
+          .update({
+            user_id: user.id,
+            summary_token: null,
+          })
+          .eq("id", summaryId)
+          .eq("summary_token", token)
+          .is("user_id", null);
+
+        if (error) throw error;
       }
-    })
-  }
+
+      toast.success("Sign in successful!", {
+        duration: 3000,
+        style: {
+          background: "#2F8F83",
+          color: "#fff",
+        },
+      });
+
+      router.replace(`/users/${summaryId}`);
+      router.refresh();
+
+    } catch (error) {
+      console.error(error);
+
+      toast.error(error.message || "Something went wrong.", {
+        duration: 4000,
+      });
+    }
+  });
+};
 
   function showSignUp() {
     setSignUp(prev => !prev)
@@ -70,9 +90,11 @@ function EmailLoginGuest({ setIsEmail }) {
 
           {/* CONTENT */}
           {signup ? (
-            <SignUpClient
+            <SignUpClientGuest
               setSignUp={setSignUp}
               SetSignupSuccess={SetSignupSuccess}
+              summaryId={summaryId}
+              token={token}
             />
           ) : (
             <div className="mt-10">
@@ -98,16 +120,28 @@ function EmailLoginGuest({ setIsEmail }) {
                     Forgot password?
                   </Link>
                 </div>
-
-                <input
-                  type="password"
+                  
+                  <div className="relative"> 
+                       <input
+                 type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required
                   className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm
                   focus:outline-none focus:ring-2 focus:ring-(--accent-secondary)"
                 />
+
+                     <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
+                  </div>
+             
 
                 <SignInButton isPending={isPending}>
                   Sign In

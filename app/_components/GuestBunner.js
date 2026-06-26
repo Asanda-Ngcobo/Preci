@@ -51,7 +51,7 @@ export default function GuestBanner({
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-3">
+        <div className="flex flex-col  gap-3">
 
           <Link
             href={`/${summaryId}/login?token=${token}&summaryId=${summaryId}`}

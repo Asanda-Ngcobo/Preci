@@ -153,7 +153,7 @@ Contract
 
 <span>
 
-Processing Costs
+Processing Fee
 
 </span>
 

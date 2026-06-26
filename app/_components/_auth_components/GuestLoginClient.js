@@ -11,11 +11,8 @@ import EmailLoginGuest from "./EmailLoginGuest"
 
 function GuestLoginClient({summaryId, token}) {
   const [isEmail, setIsEmail] = useState(false)
+  
 
-  console.log({
-  summaryId,
-  token,
-});
   return (
     <main className="mx-auto w-screen  h-screen flex justify-center
      items-center z-10 top-0 fixed bg-white">

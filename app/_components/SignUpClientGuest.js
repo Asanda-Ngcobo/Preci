@@ -7,7 +7,7 @@ import { signUpUser } from "../_lib/actions";
 import { Check, Eye, EyeOff, X } from "@deemlol/next-icons";
 import { redirect } from "next/navigation";
 
-function SignUpClientGuest({ setSignUp }) {
+function SignUpClientGuest({ setSignUp, token, summaryId }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
@@ -30,17 +30,39 @@ function SignUpClientGuest({ setSignUp }) {
     },
   ];
 
-  const handleSubmit = (formData) => {
-    startTransition(async () => {
-      try {
-        await signUpUser(formData)
-      } catch (error) {
-        redirect(`/auth/error`)
-        return
+ const handleSubmit = (formData) => {
+  startTransition(async () => {
+    try {
+      await signUpUser(formData);
+
+      if (summaryId && token) {
+        const res = await fetch("/api/claim-summary", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            summaryId,
+            token,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || "Failed to claim summary");
+        }
       }
-      redirect(`/users/${summaryId}?summaryId=${summaryId}&token=${token}`)
-    })
-  }
+
+      router.replace(`/users/${summaryId}`);
+      router.refresh();
+
+    } catch (error) {
+      console.error(error);
+      router.replace("/auth/error");
+    }
+  });
+};
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md">

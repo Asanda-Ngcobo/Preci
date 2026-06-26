@@ -7,7 +7,6 @@ import Disclaimer from "./Disclaimer";
 import { useRouter } from "next/navigation";
 import GuestBanner from "./GuestBunner";
 
-'http://localhost:3000/68f69c83-067f-420f-ac1c-d08bc88715e7?token=0f68ba4e-ea66-48be-a16e-258f8597c2a9'
 function Preview({ summary_preview, summaryId, user, price_zar, token, profile }) {
   const [priceData, setPriceData]           = useState(null);
   const [loadingPrice, setLoadingPrice]     = useState(true);
