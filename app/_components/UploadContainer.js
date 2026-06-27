@@ -89,7 +89,7 @@ router.push(`/users/${data.summaryId}`)
 }else{
 
 router.push(
-`/${data.summaryId}?token=${data.guestToken}`
+`/summary/${data.summaryId}?token=${data.guestToken}`
 )
 
 }

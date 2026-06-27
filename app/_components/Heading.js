@@ -1,8 +1,10 @@
 import ContractTypeRotator from "./ContractTypes";
 import HighlightText from "./HighligtText";
 
-export default async function Heading({ data, params }) {
-  const slug = await params?.slug;
+// ✅ Not async — params is already a plain object after page.js awaits it
+export default function Heading({ data, params }) {
+  // ✅ No await needed; slug is already a string
+  const slug = params?.slug;
 
   const highlightMap = {
     phone: "MTN or Vodacom Contract",
@@ -29,7 +31,6 @@ export default async function Heading({ data, params }) {
 
   return (
     <div className="mx-auto mb-8 flex max-w-4xl flex-col items-center gap-6 text-center">
-
       {Name && (
         <h2 className="text-2xl font-semibold text-(--text-secondary)">
           Hi <span className="text-(--accent-primary)">{Name}</span> 👋
@@ -39,10 +40,8 @@ export default async function Heading({ data, params }) {
       {!data && (
         <h1 className="text-4xl font-bold leading-tight text-(--text-secondary)">
           Before Your Next Debit Order,
-<br />
-Find Out If Your{" "}
-<HighlightText slug={params?.slug} />{" "}
-Could Cost You More.
+          <br />
+          Find Out If Your <HighlightText slug={slug} />
         </h1>
       )}
 
@@ -51,7 +50,7 @@ Could Cost You More.
         {highlight ? (
           <span className="font-medium">{highlight}</span>
         ) : (
-        <ContractTypeRotator slug={params?.slug} />
+          <ContractTypeRotator slug={slug} />
         )}{" "}
         and Preci will explain the important clauses in plain English in under a minute.
       </p>

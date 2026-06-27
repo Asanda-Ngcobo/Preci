@@ -3,20 +3,18 @@
 import { useEffect, useState } from "react";
 
 const SLUG_TEXT = {
-  phone: "MTN or Vodacom Contract",
-  housing: "Rental Agreement",
-  insurance: "Insurance Policy",
-  gym: "Gym Membership Contract",
-  car: "Car Finance Agreement",
+  phone: "MTN or Vodacom Contract Could Cost You More.",
+  housing: "Lease Agreement Could Cost You More.",
+  insurance: "Insurance Policy Could be denied.",
+  gym: "Gym Membership Contract Could Cost You More.",
+  car: "Car Finance Agreement Could Cost You More.",
   "credit-score": "Credit Report",
 };
 
 export default function HighlightText({ slug }) {
   const text = SLUG_TEXT[slug] || "Contract";
-
   const [visible, setVisible] = useState(true);
 
-  // subtle loop animation (Stripe-style pulse change)
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
@@ -28,11 +26,12 @@ export default function HighlightText({ slug }) {
 
   return (
     <span
-      className={`
-        text-(--accent-primary)
-        transition-all duration-500
-        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"}
-      `}
+      // ✅ Avoid dynamic Tailwind class strings — use style for the transform
+      className="text-(--accent-primary) transition-all duration-500 inline-block"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(4px)",
+      }}
     >
       {text}
     </span>
