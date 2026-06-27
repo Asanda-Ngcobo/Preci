@@ -74,7 +74,7 @@ function handleUnlock() {
 
 
       if(!user){
-router.push(`/${summaryId}/checkout?token=${token}`);
+router.push(`/summary/${summaryId}/checkout?token=${token}`);
       }
         else{
           router.push(`/${summaryId}/checkout`)

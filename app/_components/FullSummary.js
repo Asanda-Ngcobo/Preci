@@ -28,7 +28,7 @@ function FullSummary({ full_summary, mysummaries, profile, summaryId, user, toke
     .trim()
     .split("\n");
     
-const isNew = profile && mysummaries?.length < 1 && !profile.surveyed;
+const isNew = mysummaries?.length === 1 && !profile.surveyed;
 
   return (
     <>
@@ -111,7 +111,7 @@ const isNew = profile && mysummaries?.length < 1 && !profile.surveyed;
                 </span></h2> */}
      
 
-          {profile ? <Link href={isNew ? '/users/quiz': '/users'}> <button  className="mt-4 w-full
+          {profile ? <Link href={isNew ? `/users/quiz`: `/users`}> <button  className="mt-4 w-full
            cursor-pointer rounded-xl bg-(--accent-primary)
          hover:opacity-85 py-2 text-white disabled:opacity-50
          flex justify-center items-center"

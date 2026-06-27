@@ -107,7 +107,7 @@ export async function POST(req) {
         },
       callback_url: user
   ? `${process.env.NEXT_PUBLIC_BASE_URL}/users/${summaryId}`
-  : `${process.env.NEXT_PUBLIC_BASE_URL}/${summaryId}?token=${token}`,
+  : `${process.env.NEXT_PUBLIC_BASE_URL}/summary/${summaryId}?token=${token}`,
       }),
     }
   );

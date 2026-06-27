@@ -2,11 +2,11 @@ import Heading from "./Heading"
 import UploadContainer from "./UploadContainer"
 
 
-function Hero({data}) {
+function Hero({data, params}) {
     return (
         <div className="text-center">
           
-            <Heading data={data}/>
+            <Heading data={data} params={params}/>
           
         </div>
     )

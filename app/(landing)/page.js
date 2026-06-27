@@ -12,7 +12,7 @@ export const metadata = {
 
   title: {
     default:
-      "Preci | Understand Contracts Before Your Employer Takes Advantage Of You",
+      "Preci | Understand Contracts Before They Cost You Money",
       
     template: "%s | Preci",
   },

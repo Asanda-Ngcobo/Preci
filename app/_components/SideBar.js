@@ -1,6 +1,6 @@
 'use client'
 
-import { Book, Search, X } from "@deemlol/next-icons"
+import { Book, FileText, Search, X } from "@deemlol/next-icons"
 import Link from "next/link"
 import Profile from "./Profile"
 import { useMenu } from "../providers/MenuProvider"
@@ -46,16 +46,16 @@ function SideBar({ data, userSummaries }) {
           <li>
             <button
               type="button"
-              className="flex gap-1 text-xs text-(--text-secondary) items-center w-full"
+              className="flex gap-1 text-md text-(--text-secondary) items-center w-full"
             >
-              <Book />
+              {/* <Book /> */}
               <span>Your Summaries</span>
             </button>
           </li>
         </ul>
 
-        <ul className="my-3 flex flex-col gap-2">
-          {userSummaries.map((summary) => {
+        <ul className="my-6 flex flex-col gap-2">
+          <div><FileText className="text-(--text-seondary)"/></div>{userSummaries.map((summary) => {
             const title = summary.contract_type
             const date = new Date(summary.created_at).toLocaleDateString("en-GB", {
               day: "2-digit",

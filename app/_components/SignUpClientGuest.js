@@ -5,7 +5,7 @@ import { useState, useTransition } from "react"
 import SignInButton from "./_auth_components/SignInButton";
 import { signUpUser } from "../_lib/actions";
 import { Check, Eye, EyeOff, X } from "@deemlol/next-icons";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 function SignUpClientGuest({ setSignUp, token, summaryId }) {
 
@@ -14,7 +14,7 @@ function SignUpClientGuest({ setSignUp, token, summaryId }) {
   const [name, setName] = useState('')
   const [showPassword, setShowPassword] = useState(false);
   const [isPending, startTransition] = useTransition();
-
+  const router = useRouter()
   const rules = [
     {
       label: "At least 1 uppercase letter",

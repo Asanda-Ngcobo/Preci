@@ -12,7 +12,7 @@ export default function GuestBanner({
 
   const guestLink =
     typeof window !== "undefined"
-      ? `${window.location.origin}/${summaryId}?token=${token}`
+      ? `${window.location.origin}/summary/${summaryId}?token=${token}`
       : "";
 
   async function copyLink() {
@@ -30,7 +30,7 @@ export default function GuestBanner({
 
   return (
 
-    <main  className="w-screen top-0 h-screen z-20 absolute bg-white
+    <main  className="w-full left-0 top-0 h-screen z-20 absolute bg-white
      flex flex-col justify-center items-center gap-4">
 
         <div className="w-[90%]
@@ -45,8 +45,9 @@ export default function GuestBanner({
 
           <p className="text-sm text-yellow-800 mt-1">
             Your summary hasn't been saved to an account yet.
-            <span className="text-(--accent-secondary)">{" "}Create a free account</span> to keep it permanently and access it
-            from any device 
+            <span className="text-(--accent-secondary)">{" "}Create a free account</span>{" "}
+             to keep it permanently and access it
+            from any device, anytime.
             {/* & <span className="text-(--accent-secondary)">claim your 50% discount</span>. */}
           </p>
         </div>
@@ -54,7 +55,7 @@ export default function GuestBanner({
         <div className="flex flex-col  gap-3">
 
           <Link
-            href={`/${summaryId}/login?token=${token}&summaryId=${summaryId}`}
+            href={`/summary/${summaryId}/login?token=${token}&summaryId=${summaryId}`}
             className="flex-1"
           >
             <button

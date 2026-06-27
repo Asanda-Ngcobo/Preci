@@ -4,14 +4,14 @@ import Middle from "./Middle"
 import Nav from "./Nav"
 
 
-function Main({data}) {
+function Main({data, params}) {
    
     
     return (
         <div className="
      bg-background font-inter md:w-[85%] w-[90%] mx-auto  ">
        {data ? <Nav data={data}/> : ''} 
-        <Middle data={data}/>
+        <Middle data={data} params={params}/>
        {!data && <MeetPreci/>} 
     
     </div>
