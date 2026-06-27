@@ -12,7 +12,7 @@ const SLUG_TEXT = {
 };
 
 export default function HighlightText({ slug }) {
-  const text = SLUG_TEXT[slug] || "Contract";
+  const text = SLUG_TEXT[slug] || "Contract Could Cost You More";
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
