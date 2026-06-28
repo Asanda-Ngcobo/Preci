@@ -169,7 +169,7 @@ export default function RootLayout({ children }) {
          reverseOrder={false} />
         <MenuProvider>
           <MobileMenu/>
-          <Discount/>
+          {/* <Discount/> */}
           <Nav/>
          {children}
 
