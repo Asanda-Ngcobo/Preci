@@ -8,6 +8,7 @@ import Footer from "../_components/Footer";
 import Discount from "../_components/Discount";
 import MobileMenu from "../_components/MobileNav";
 import Script from "next/script";
+import { createClient } from "../_lib/supabase/server";
 
 
 
@@ -143,7 +144,19 @@ export const metadata = {
 
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+  const supabase = await createClient()
+  
+  // const { data: {user}, error } = await supabase.auth.getClaims()
+  //  if (error || !user?.claims) {
+  //   redirect('/auth/login')
+  //  }
+  
+   const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser();
   return (
     <html lang="en">
 
@@ -168,9 +181,9 @@ export default function RootLayout({ children }) {
         <Toaster position="top-center" 
          reverseOrder={false} />
         <MenuProvider>
-          <MobileMenu/>
+          {/* <MobileMenu/> */}
           {/* <Discount/> */}
-          <Nav/>
+          {!user && <Nav/>}
          {children}
 
   

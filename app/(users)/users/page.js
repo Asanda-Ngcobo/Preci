@@ -31,7 +31,7 @@ const supabase = await createClient()
   } = await supabase.auth.getUser();
 
   if (!user || authError) {
-    redirect('/')
+    redirect('/auth/login')
   }
 
 

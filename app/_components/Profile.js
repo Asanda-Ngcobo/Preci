@@ -61,7 +61,7 @@ function Profile({ data }) {
 
             <div>
               <div>{name}</div>
-              <div className="text-xs">{email}</div>
+              <div className="text-xs w-full">{email}</div>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ function Profile({ data }) {
       )}
 
       <div
-        className={`${showProfile ? 'w-[90%]' : 'w-[94%]'} h-[10vh] mx-auto
+        className={`${showProfile ? 'w-[90%] ' : 'w-[94%]'} h-[10vh] mx-auto
           rounded-md bg-background flex gap-3 justify-center items-center cursor-pointer`}
         onClick={handleShowProfile}
       >

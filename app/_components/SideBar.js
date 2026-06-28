@@ -22,7 +22,7 @@ function SideBar({ data, userSummaries }) {
         ${menuOpen ? 'flex' : 'hidden md:flex'}
       `}
     >
-      <div className="flex-1 my-4 mx-2">
+      <div className="flex-1 my-4 mx-2 ">
         <div className="flex flex-row justify-between">
           <h2 className="font-sans text-(--accent-primary) font-bold md:text-2xl text-md">
             Préci
@@ -55,7 +55,7 @@ function SideBar({ data, userSummaries }) {
         </ul>
 
         <ul className="my-6 flex flex-col gap-2">
-          <div><FileText className="text-(--text-seondary)"/></div>{userSummaries.map((summary) => {
+          {userSummaries.map((summary) => {
             const title = summary.contract_type
             const date = new Date(summary.created_at).toLocaleDateString("en-GB", {
               day: "2-digit",
@@ -64,11 +64,12 @@ function SideBar({ data, userSummaries }) {
             })
 
             return (
-              <li
+              <li 
                 key={summary.id}
-                className="text-xs py-1"
+                className="text-xs py-1 flex items-center"
                 onClick={() => setMenuOpen(prev => !prev)}
               >
+                {/* <div><FileText width={20} color="898989"/></div> */}
                 <Link href={`/users/${summary.id}`} className="cursor-pointer">
                   {title}...{date}
                 </Link>
