@@ -23,6 +23,19 @@ function MeetPreci() {
        
         </div>
        
+        {/* Video Embed */}
+        {/* <div className="mt-10 flex justify-center">
+          <div className="w-full max-w-full rounded-2xl
+           overflow-hidden shadow-lg ">
+            <iframe
+              src="https://scribehow.com/embed/How_to_Upload_and_Summarize_Contracts_Using_Preci__3tblTxR5STSPR7o581n1Rg"
+              className="w-full h-150"
+              allow="encrypted-media"
+              allowFullScreen
+            />
+          </div>
+        </div>
+        */}
         {/* How it works */}
         {/* <div>
           <h2 className="mb-8 text-center text-2xl md:text-3xl font-semibold text-gray-800">
