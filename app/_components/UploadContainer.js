@@ -140,7 +140,7 @@ router.push(
      
     
   >
-    {!file ? <ArrowRight /> : 'Upload'}
+    {!file ? <ArrowRight /> : 'Analyize'}
   </button>
 
 </div>
