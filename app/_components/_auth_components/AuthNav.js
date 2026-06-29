@@ -23,7 +23,7 @@ function Nav() {
 
       <ul className="flex gap-4 text-sm cursor-pointer">
         <li className="hover:bg-gray-300 w-fit h-fit py-1 px-2 rounded-xl">
-          <Link href='/users' className="flex gap-2 justify-center items-center h-fit w-fit"><User width={15}/>Login</Link>
+          <Link href='/auth/login' className="flex gap-2 justify-center items-center h-fit w-fit"><User width={15}/>Login</Link>
         </li>
         {/* <li className="hover:underline w-fit h-fit p-2 rounded-2xl active:underline">
           <Link href='/blog'>Blog</Link>
