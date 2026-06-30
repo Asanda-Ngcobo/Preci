@@ -12,13 +12,13 @@ export const metadata = {
 
   title: {
     default:
-      "Preci | Understand Contracts Before They Cost You Money",
+      "Preci | AI Software For South African Consumers",
       
     template: "%s | Preci",
   },
 
   description:
-    "Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
+    "Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
 
  keywords: [
   "contract checker",
@@ -66,10 +66,10 @@ export const metadata = {
 
   openGraph: {
     title:
-      "Preci | Understand Contracts Before They Cost You Money",
+      "Preci | AI Software For South African Consumers",
 
     description:
-       "Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
+       "Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
 
 
     url: "https://preci.co.za",
@@ -94,10 +94,10 @@ export const metadata = {
     card: "summary_large_image",
 
     title:
-       "Preci | Understand Contracts Before They Cost You Money",
+    "Preci | AI Software For South African Consumers",
 
     description:
-      "Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
+      "Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms,before they cost you thousands of rands.",
 
 
     images: ["https://preci.co.za/og-image.png"],

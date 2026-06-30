@@ -8,11 +8,11 @@ import { createClient } from "@/app/_lib/supabase/server";
 export const metadata = {
   metadataBase: new URL("https://preci.co.za"),
   title: {
-    default: "Preci | Understand Contracts Before They Cost You Money",
+    default: "Preci | AI Software For South African Consumers",
     template: "%s | Preci",
   },
   description:
-    "Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms before they cost you thousands of rands.",
+    "Préci AI breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms before they cost you thousands of rands.",
 };
 
 export async function generateStaticParams() {
