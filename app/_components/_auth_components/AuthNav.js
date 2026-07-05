@@ -16,7 +16,7 @@ function Nav() {
   return (
     <div className="h-15 flex top-0 justify-between items-center w-[90%] mx-auto">
       <Link href='/'>
-        <h2 className="font-sans text-(--accent-primary) font-bold text-3xl">
+        <h2 className="font-sans text-(--accent-primary)  text-3xl">
           Préci
         </h2>
       </Link>

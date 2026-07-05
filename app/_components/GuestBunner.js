@@ -47,8 +47,8 @@ export default function GuestBanner({
             Your summary hasn't been saved to an account yet.
             <span className="text-(--accent-secondary)">{" "}Create a free account</span>{" "}
              to keep it permanently and access it
-            from any device, anytime.
-            {/* & <span className="text-(--accent-secondary)">claim your 50% discount</span>. */}
+            from any device, anytime
+            & <span className="text-(--accent-secondary)">claim your 67% discount</span>.
           </p>
         </div>
 

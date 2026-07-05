@@ -53,13 +53,13 @@ export default function ReferralPage({ params }) {
       <div className="bg-white p-8 rounded-2xl shadow-xl w-100 flex flex-col gap-5">
 
         <h1 className="text-xl font-semibold text-center">
-          Unlock 50% Discount
+          Unlock 67% Discount
         </h1>
 
         {!success ? (
           <>
             <p className="text-sm text-gray-600 text-center">
-              Invite a friend to Preci and unlock <b>50% off your summary.</b>
+              Invite a friend to Preci and unlock <b>67% off your summary.</b>
             </p>
 
             <input

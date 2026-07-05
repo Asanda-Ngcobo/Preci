@@ -39,7 +39,7 @@ function Discount() {
     <main className="sticky top-0 z-30 w-full bg-(--accent-secondary) text-white border-b border-white/10">
       <div className="mx-auto max-w-6xl px-4 py-3 flex flex-row items-center justify-center gap-4">
         <p className="text-sm md:text-base font-medium text-center">
-          Free for a limited time!
+          Mandela Month Promo (67% off)
         </p>
         <div className="flex items-center gap-2 bg-(--accent-primary) rounded-sm px-2 py-1 shadow-lg">
           {blocks.map((item) => (
