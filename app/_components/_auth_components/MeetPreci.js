@@ -6,7 +6,7 @@ function MeetPreci() {
   return (
     <section
       id="meet-preci"
-      className="w-full bg-gray-50 pb-16 px-4"
+      className="w-full bg-gray-50 pb-16 px-4 md:pt-30"
     >
       <div className="mx-auto max-w-6xl">
         {/* Intro */}
@@ -19,7 +19,7 @@ function MeetPreci() {
           <p className="mt-4 max-w-3xl mx-auto text-gray-600 text-base md:text-lg">
             Préci breaks down contracts and agreements so you understand the risks, hidden clauses, and cancellation terms, 
             <span className="font-medium">{" "}
-              before they cost you thousands of rands.</span>
+              before they cost you hundreds of rands.</span>
           </p>
        
         </div>
