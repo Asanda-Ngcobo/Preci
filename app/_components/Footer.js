@@ -3,9 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import Instagram from '@/public/icons8-instagram-ios-17-filled/icons8-instagram-100.png'
-import Facebook from '@/public/icons8-facebook-ios-17-filled/icons8-facebook-100.png'
-import TikTok from '@/public/icons8-tiktok-ios-17-filled/icons8-tiktok-100.png'
+
 import Insurance from "@/public/InsuranceStraight.png"
 const blogPages = [
   {id : 1,
