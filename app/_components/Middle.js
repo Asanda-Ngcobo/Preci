@@ -3,7 +3,7 @@ import UploadContainer from "./UploadContainer"
 
 async function Middle({data, params}) {
     return (
-        <div className="flex flex-col min-h-screen 
+        <div className="flex flex-col min-full-screen py-20
          justify-center ">
               <Hero data={data} params={params}/>
       <UploadContainer user={data}/>

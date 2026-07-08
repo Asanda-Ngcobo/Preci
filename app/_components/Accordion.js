@@ -8,12 +8,12 @@ import Processing from "@/public/Processing.png"
 import Summary from "@/public/Summary2.png"
 import Payment from "@/public/Payment.png"
 const data = [
-  {
-    image: Loggin,
-    question: 'Create an account or sign in',
-    explanation: 'Sign up or log in using Google (recommended) or your email and password.',
-    id: 1,
-  },
+  // {
+  //   image: Loggin,
+  //   question: 'Create an account or sign in',
+  //   explanation: 'Sign up or log in using Google (recommended) or your email and password.',
+  //   id: 1,
+  // },
   {
        image: Upload,
     question: 'Upload your contract or agreement',
@@ -23,13 +23,13 @@ const data = [
   {   image: Processing,
     question: 'Get your document summarized',
     explanation:
-      'Click the arrow button to let our AI analyze your document and highlight key clauses, risks, and potential red flags.',
+      'Click `Analyze` button to let our AI analyze your document and highlight key clauses, risks, and potential red flags.',
     id: 3,
   },
   {   image: Payment,
-    question: 'Complete the payment',
+    question: 'Unlock Full Summary',
     explanation:
-      'Pay based on your document length (for example, a 1,000-word contract).',
+      'Unlock full summary by paying the small processing fee (for example, a 1,000-word contract).',
     id: 4,
   },
   { image: Summary,

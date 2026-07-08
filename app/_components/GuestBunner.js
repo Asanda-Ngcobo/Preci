@@ -7,6 +7,7 @@ import { Copy, Check } from "@deemlol/next-icons";
 export default function GuestBanner({
   summaryId,
   token,
+  price
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -28,6 +29,8 @@ export default function GuestBanner({
     }
   }
 
+  let discount = price - (price * 0.67)
+
   return (
 
     <main  className="w-full left-0 top-0 h-screen z-20 absolute bg-white
@@ -39,17 +42,20 @@ export default function GuestBanner({
       <div className="flex flex-col gap-3">
 
         <div>
-          <h2 className="font-semibold text-yellow-900">
+          <h2 className="font-semibold text-yellow-900 text-center">
             You're viewing this summary as a guest
           </h2>
 
-          <p className="text-sm text-yellow-800 mt-1">
+          <p className="text-sm text-yellow-800 mt-1 text-center">
             Your summary hasn't been saved to an account yet.
-            <span className="text-(--accent-secondary)">{" "}Create a free account</span>{" "}
+            <span className="text-(--accent-secondary) font-bold">{" "}Create a free account</span>{" "}
              to keep it permanently and access it
             from any device, anytime
-            & <span className="text-(--accent-secondary)">claim your 67% discount</span>.
+            & <span className="text-(--accent-secondary) font-bold">claim your 67% discount.</span>
           </p>
+          <p className="text-sm text-yellow-800 mt-1 text-center">Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
+          to unlock your full summary, you'll pay <span className="text-(--accent-secondary) font-bold"> R{discount.toFixed(2)}</span>
+              </p>
         </div>
 
         <div className="flex flex-col  gap-3">
@@ -95,7 +101,7 @@ export default function GuestBanner({
 
         </div>
 
-        <p className="text-xs text-yellow-700">
+        <p className="text-xs text-yellow-700 text-center">
           This private link is the only way to access this summary until you
           create an account. Keep it somewhere safe.
         </p>
