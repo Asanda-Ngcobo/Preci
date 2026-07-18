@@ -3,6 +3,17 @@
 import Link from "next/link";
 import { ArrowLeft, Upload } from "@deemlol/next-icons";
 
+export const metadata = {
+  metadataBase: new URL("https://preci.co.za/summary/no-summary"),
+
+  title: {
+    default:
+      "Preci | No Summary",
+      
+  
+  }
+}
+
 export default function NoSummaryPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6">
