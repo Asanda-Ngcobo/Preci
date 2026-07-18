@@ -52,6 +52,7 @@ export default function SummaryPreview({
             profile={profile}
             token={token}
             price_zar={price_zar}
+            paid={paid}
           />
         )}
 

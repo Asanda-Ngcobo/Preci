@@ -3,11 +3,9 @@ import "@/app/globals.css";
 
 import { MenuProvider } from "@/app/providers/MenuProvider";
 
-import Footer from "@/app/_components/Footer";
 import { Toaster } from "react-hot-toast";
-import Nav from "../../../_components/_auth_components/AuthNav";
-import MobileMenu from "../../../_components/MobileNav";
-import Discount from "../../../_components/Discount";
+
+import Discount from "@/app/_components/Discount";
 import Script from "next/script";
 
 

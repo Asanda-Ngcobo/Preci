@@ -7,7 +7,9 @@ import { Copy, Check } from "@deemlol/next-icons";
 export default function GuestBanner({
   summaryId,
   token,
-  price
+  price,
+  unpaid
+
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -31,6 +33,7 @@ export default function GuestBanner({
 
   let discount = price - (price * 0.67)
 
+
   return (
 
     <main  className="w-full left-0 top-0 h-screen z-20 absolute bg-white
@@ -51,11 +54,11 @@ export default function GuestBanner({
             <span className="text-(--accent-secondary) font-bold">{" "}Create a free account</span>{" "}
              to keep it permanently and access it
             from any device, anytime
-            & <span className="text-(--accent-secondary) font-bold">claim your 67% discount.</span>
+            & {!unpaid ? <span className='text-(--accent-secondary) font-bold'>& claim 67% on your next upload this month.</span>: <span className="text-(--accent-secondary) font-bold">& claim your 67% discount.</span>}
           </p>
-          <p className="text-sm text-yellow-800 mt-1 text-center">Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
+          {unpaid && <p className="text-sm text-yellow-800 mt-1 text-center">Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
           to unlock your full summary, you'll pay <span className="text-(--accent-secondary) font-bold"> R{discount.toFixed(2)}</span>
-              </p>
+              </p>}
         </div>
 
         <div className="flex flex-col  gap-3">

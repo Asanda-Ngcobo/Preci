@@ -94,7 +94,7 @@ if (user) {
    mySummaries = await getSummaries(profile.id) ?? [];
   }
 
-  
+    console.log(summary)
   return (
     <div className="w-full h-screen flex justify-center items-center z-10 top-0 fixed bg-white">
       <SummaryPreview

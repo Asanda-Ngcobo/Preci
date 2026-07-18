@@ -72,11 +72,12 @@ async function handleProcess() {
 
     const data = await res.json();
 
-    if (!res.ok) {
-      setStatus("idle");
-      setError(data.error);
-      return;
-    }
+   if (!res.ok) {
+  router.push(
+    `/summary/no-summary?message=${encodeURIComponent(data.error)}`
+  );
+  return;
+}
 
     setStatus("saving");
 
@@ -93,12 +94,17 @@ router.push(
 )
 
 }
+
+
     }, 700);
 
   } catch (err) {
-    setStatus("idle");
-    setError("Something went wrong. Please try again.");
-  }
+  console.error(err);
+
+  router.push(
+    "/summary/no-summary?message=Something%20went%20wrong"
+  );
+}
 }
 
     return (

@@ -7,7 +7,7 @@ import Disclaimer from "./Disclaimer";
 import { useRouter } from "next/navigation";
 import GuestBanner from "./GuestBunner";
 
-function Preview({ summary_preview, summaryId, user, price_zar, token, profile }) {
+function Preview({ summary_preview, summaryId, user, price_zar, token, profile, paid }) {
   const [priceData, setPriceData]           = useState(null);
   const [loadingPrice, setLoadingPrice]     = useState(true);
   const [paying, setPaying]                 = useState(false);
@@ -16,6 +16,8 @@ function Preview({ summary_preview, summaryId, user, price_zar, token, profile }
       const router = useRouter();
 
   const discountClaimed = profile?.referral_discount_used === true;
+  const notViewed = !paid;
+
 
   const fetchPrice = useCallback(async () => {
     try {
@@ -148,6 +150,7 @@ router.push(`/summary/${summaryId}/checkout?token=${token}`);
         loadingPrice={loadingPrice}
         discountActive={discountActive}
         price={price_zar}
+        unpaid={notViewed}
         paying={paying}
         payWithPaystack={payWithPaystack}
         discountClaimed={discountClaimed}
