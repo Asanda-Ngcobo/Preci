@@ -37,7 +37,7 @@ to clearly see your obligations, key risks, and important red flags before you l
         <span className="font-medium">
           {displayPrice}
           {discountActive && (
-            <span className="ml-2 text-xs text-green-600 font-normal">67% off</span>
+            <span className="ml-2 text-xs text-green-600 font-normal">50% off</span>
           )}
         </span>
       </div>
@@ -53,7 +53,7 @@ to clearly see your obligations, key risks, and important red flags before you l
       {!loadingPrice && !discountActive && !discountClaimed && (
         <Link href={`/users/${summaryId}/referral`} className="w-[60%]">
           <button className="w-full cursor-pointer rounded-xl bg-white hover:opacity-85 py-2 text-black border-2">
-            Claim 67% Off
+            Claim 50% Off
           </button>
         </Link>
       )}
