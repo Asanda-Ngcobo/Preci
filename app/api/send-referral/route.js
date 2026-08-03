@@ -151,7 +151,7 @@ export async function POST(req) {
   }
 
   // ─── 10. Apply everything atomically ───────────────────────────────────────
-  const finalPrice = summary.price_zar * 0.33;
+  const finalPrice = summary.price_zar * 0.50;
 console.log("Calling RPC with:", {
   p_summary_id:       summaryId,
   p_referrer_id:      user.id,
