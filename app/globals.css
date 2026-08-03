@@ -5,8 +5,8 @@
   --bg-primary: #FAFAF7;
 --text-primary: #2E2E2E;
 --text-secondary: #6B7280;
---accent-primary: #2F8F83;
---accent-secondary: #A8DADC;
+--accent-primary: black;
+--accent-secondary: gray;
 --risk-medium: #F4D35E;
 --risk-high: #E76F51;
 }
