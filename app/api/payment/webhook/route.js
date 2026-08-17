@@ -8,13 +8,26 @@ const supabase = createClient(
 
 export async function POST(req) {
   try {
+    // --------------------------------------------------
+    // 1. Read raw body
+    // --------------------------------------------------
+
     const rawBody = await req.text();
+
     const signature = req.headers.get("x-paystack-signature");
 
     if (!signature) {
       console.error("Webhook: missing x-paystack-signature header");
-      return Response.json({ error: "Missing signature" }, { status: 401 });
+
+      return Response.json(
+        { error: "Missing signature" },
+        { status: 401 }
+      );
     }
+
+    // --------------------------------------------------
+    // 2. Verify Paystack signature
+    // --------------------------------------------------
 
     const expectedSig = createHmac(
       "sha512",
@@ -26,97 +39,216 @@ export async function POST(req) {
     const sigBuf = Buffer.from(signature, "hex");
     const expectedBuf = Buffer.from(expectedSig, "hex");
 
-    // timingSafeEqual throws if buffer lengths differ — guard against that first
     const validSig =
       sigBuf.length === expectedBuf.length &&
       timingSafeEqual(sigBuf, expectedBuf);
 
     if (!validSig) {
-      console.error("Webhook: signature mismatch", { signature, expectedSig });
-      return Response.json({ error: "Invalid signature" }, { status: 401 });
+      console.error("Webhook: signature mismatch");
+
+      return Response.json(
+        { error: "Invalid signature" },
+        { status: 401 }
+      );
     }
 
+    // --------------------------------------------------
+    // 3. Parse webhook
+    // --------------------------------------------------
+
     let event;
+
     try {
       event = JSON.parse(rawBody);
-    } catch (parseErr) {
-      console.error("Webhook: failed to parse JSON body", parseErr);
-      return Response.json({ error: "Invalid JSON" }, { status: 400 });
+    } catch (err) {
+      console.error("Webhook: invalid JSON", err);
+
+      return Response.json(
+        { error: "Invalid JSON" },
+        { status: 400 }
+      );
     }
+
+    console.log("Paystack webhook received:", {
+      event: event.event,
+      reference: event.data?.reference,
+      amount: event.data?.amount,
+    });
+
+    // --------------------------------------------------
+    // 4. Ignore events we don't care about
+    // --------------------------------------------------
 
     if (event.event !== "charge.success") {
       return Response.json({ ok: true });
     }
 
-    const { reference, metadata, amount } = event.data ?? {};
-    const { summaryId } = metadata ?? {};
+    // --------------------------------------------------
+    // 5. Get payment information
+    // --------------------------------------------------
 
+    const {
+      reference,
+      amount,
+    } = event.data ?? {};
 
+    if (!reference) {
+      console.error("Webhook: missing reference");
 
-    if (!reference || !summaryId) {
-      console.error("Webhook: missing reference or summaryId", { reference, metadata });
-      return Response.json({ error: "Missing metadata" }, { status: 400 });
+      return Response.json(
+        { error: "Missing reference" },
+        { status: 400 }
+      );
     }
 
-    // get reference
-    const { data: pending, error: pendingErr } = await supabase
-      .from("payment_references")
-      .select("*")
-      .eq("reference", reference)
-      .single();
+    // --------------------------------------------------
+    // 6. Find our payment record
+    // --------------------------------------------------
 
-    if (pendingErr) {
-      console.error("Webhook: error fetching payment_references", pendingErr);
-      return Response.json({ error: "DB lookup failed" }, { status: 500 });
+    const { data: pending, error: pendingErr } =
+      await supabase
+        .from("payment_references")
+        .select("*")
+        .eq("reference", reference)
+        .single();
+
+    if (pendingErr || !pending) {
+      console.error(
+        "Webhook: payment reference not found",
+        {
+          reference,
+          error: pendingErr,
+        }
+      );
+
+      return Response.json(
+        { error: "Unknown reference" },
+        { status: 400 }
+      );
     }
 
-    if (!pending) {
-      console.error("Webhook: unknown reference", reference);
-      return Response.json({ error: "Unknown reference" }, { status: 400 });
+    console.log("Webhook: payment reference found", {
+      reference,
+      summaryId: pending.summary_id,
+      amountPaid: amount,
+      expectedAmount: Math.round(
+        Number(pending.amount_zar) * 100
+      ),
+      processed: pending.processed,
+    });
+
+    // --------------------------------------------------
+    // 7. Prevent duplicate processing
+    // --------------------------------------------------
+
+    if (pending.processed) {
+      console.log(
+        "Webhook: payment already processed",
+        reference
+      );
+
+      return Response.json({ ok: true });
     }
 
-    // verify amount
-  const expected = Math.round(pending.amount_zar * 100);
-const amountDiff = Math.abs(amount - expected);
+    // --------------------------------------------------
+    // 8. Verify amount
+    // --------------------------------------------------
 
-if (amountDiff > 2) { // allow 2 cent tolerance
-  console.error("Webhook: amount mismatch", { amount, expected, reference });
-  return Response.json({ error: "Amount mismatch" }, { status: 400 });
-}
+    const expectedAmount = Math.round(
+      Number(pending.amount_zar) * 100
+    );
 
-    // 🔥 SINGLE SOURCE OF TRUTH UPDATE
-    const { error: updateErr } = await supabase
-      .from("summaries")
-      .update({
-        paid: true,
-        paid_at: new Date().toISOString(),
-      })
-      .eq("id", summaryId);
+    const amountDiff = Math.abs(
+      Number(amount) - expectedAmount
+    );
+
+    if (amountDiff > 2) {
+      console.error("Webhook: amount mismatch", {
+        reference,
+        amount,
+        expectedAmount,
+      });
+
+      return Response.json(
+        { error: "Amount mismatch" },
+        { status: 400 }
+      );
+    }
+
+    // --------------------------------------------------
+    // 9. Mark summary as paid
+    // --------------------------------------------------
+
+    const { data: updatedSummary, error: updateErr } =
+      await supabase
+        .from("summaries")
+        .update({
+          paid: true,
+          paid_at: new Date().toISOString(),
+        })
+        .eq("id", pending.summary_id)
+        .select("id, paid, paid_at")
+        .single();
 
     if (updateErr) {
-      console.error("Webhook: failed to update summaries.paid", updateErr, { summaryId });
-      return Response.json({ error: "DB update failed" }, { status: 500 });
+      console.error(
+        "Webhook: failed to update summary",
+        {
+          error: updateErr,
+          summaryId: pending.summary_id,
+          reference,
+        }
+      );
+
+      return Response.json(
+        { error: "DB update failed" },
+        { status: 500 }
+      );
     }
 
-    console.log("Webhook: marked summary paid", { summaryId, reference });
+    console.log("Webhook: summary successfully marked paid", {
+      summaryId: pending.summary_id,
+      reference,
+      updatedSummary,
+    });
 
-    // cleanup — non-fatal if this fails, the payment itself already succeeded
-  // Replace the delete at the end with an update
-const { error: cleanupErr } = await supabase
-  .from("payment_references")
-  .update({ processed: true, processed_at: new Date().toISOString() })
-  .eq("id", pending.id);
+    // --------------------------------------------------
+    // 10. Mark payment reference as processed
+    // --------------------------------------------------
 
-    if (cleanupErr) {
-      console.error("Webhook: cleanup of payment_references failed (non-fatal)", cleanupErr);
+    const { error: processedErr } = await supabase
+      .from("payment_references")
+      .update({
+        processed: true,
+        processed_at: new Date().toISOString(),
+      })
+      .eq("id", pending.id);
+
+    if (processedErr) {
+      console.error(
+        "Webhook: failed to mark payment processed",
+        processedErr
+      );
+
+      // Payment itself was successful, so don't make
+      // Paystack retry the webhook.
     }
-if (pending.processed) {
-  console.log("Webhook: already processed, skipping", reference);
-  return Response.json({ ok: true }); // return 200 so Paystack stops retrying
-}
+
+    // --------------------------------------------------
+    // 11. Success
+    // --------------------------------------------------
+
     return Response.json({ ok: true });
+
   } catch (err) {
-    console.error("Webhook: unexpected error", err);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    console.error(
+      "Webhook: unexpected error",
+      err
+    );
+
+    return Response.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
