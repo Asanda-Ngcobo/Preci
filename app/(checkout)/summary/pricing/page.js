@@ -214,8 +214,7 @@ const metadata = {
 
           <div className="mt-5 rounded-xl bg-blue-50 p-5 text-center">
             <p className="text-sm leading-6 text-(--accent-secondary)">
-              <strong>Your exact price is calculated automatically</strong>{" "}
-              after you upload your contract. Most consumer contracts are under 2500 words
+             Your exact price is calculated automatically after you upload your contract.  <strong>Most consumer contracts are under 2500 words</strong>
             </p>
           </div>
         </div>
