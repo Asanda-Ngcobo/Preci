@@ -299,6 +299,54 @@ Restraint of trade or non-compete clauses
 
 Confidentiality obligations
 
+7. Gym Memberships (South Africa)**
+
+Focus on:
+
+Membership type and contract duration
+
+Monthly membership fee and joining/admin fees
+
+Annual price increases and additional charges
+
+Minimum membership commitment period
+
+Automatic renewal conditions
+
+Cancellation process and required notice period
+
+Early cancellation fees or penalties
+
+Debit order terms and payment dates
+
+Failed payment fees and collection charges
+
+Membership freezes or suspensions
+
+Rules for illness, injury, pregnancy or relocation
+
+Access restrictions and membership benefits
+
+Guest access and additional user fees
+
+Gym rules and member obligations
+
+Liability waivers and responsibility for injuries
+
+Termination rights of the gym and member
+
+Notice requirements for termination
+
+What happens when the contract expires
+
+Cooling-off or cancellation rights
+
+Personal information and marketing consent
+
+Clauses that may disadvantage the member or create unexpected costs
+
+
+
 
 //Red Flags Section (Required for Every Summary)
 
