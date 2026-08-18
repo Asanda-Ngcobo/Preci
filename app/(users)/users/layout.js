@@ -89,10 +89,7 @@ export default function RootLayout({ children }) {
         <MenuProvider>
          {children}
         </MenuProvider>
-           <Script
-          src="https://js.paystack.co/v1/inline.js"
-          strategy="afterInteractive"
-        />
+        
       </body>
 
   </html>
