@@ -69,6 +69,7 @@ Valid contract types:
 - Rental Lease Agreement
 - Insurance Policy
 - Employment Contract
+- Gym Membership
 - Unknown
 
 If the contract does not clearly match one of the above, return "Unknown".
