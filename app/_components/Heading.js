@@ -53,7 +53,7 @@ export default function Heading({ data, params }) {
         ) : (
           <ContractTypeRotator slug={slug} />
         )}{" "}
-        Upload the copy of your contract they sent to find out how.
+        to find out how.
       </p>
 
       <p className="text-sm text-gray-500">
