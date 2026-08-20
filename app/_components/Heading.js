@@ -7,8 +7,8 @@ export default function Heading({ data, params }) {
   const slug = params?.slug;
 
   const highlightMap = {
-    phone: "MTN or Vodacom Contract",
-    housing: "Rental Agreement",
+    phone: "Phone Contract",
+    housing: "Lease Agreement",
     insurance: "Insurance Policy",
     gym: "Gym Membership Contract",
     car: "Car Finance Agreement",
