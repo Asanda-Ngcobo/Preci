@@ -53,7 +53,7 @@ export default function Heading({ data, params }) {
         ) : (
           <ContractTypeRotator slug={slug} />
         )}{" "}
-        to find out how.
+        to find out if that can happen to you & how you can prevent it.
       </p>
 
       <p className="text-sm text-gray-500">
