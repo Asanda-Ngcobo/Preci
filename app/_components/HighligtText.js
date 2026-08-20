@@ -12,7 +12,7 @@ const SLUG_TEXT = {
 };
 
 export default function HighlightText({ slug }) {
-  const text = SLUG_TEXT[slug] || "South fricans lose hundreds of rand per year on hidden clauses.";
+  const text = SLUG_TEXT[slug] || "South fricans lose hundreds of rands every year on hidden clauses.";
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
