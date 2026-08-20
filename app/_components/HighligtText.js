@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const SLUG_TEXT = {
   phone: "Your 24/36 months Iphone may be longer than that.",
-  housing: "Lease Agreement Could Cost You More.",
+  housing: "Your may be denied your deposit when you leave.",
   insurance: "Your family may be denied a claim when you are gone.",
   gym: "Your summer body gym membership can cost you more than what you signed up for.",
   car: "Car Finance Agreement Could Cost You More.",
@@ -12,7 +12,7 @@ const SLUG_TEXT = {
 };
 
 export default function HighlightText({ slug }) {
-  const text = SLUG_TEXT[slug] || "Contract Could Cost You More";
+  const text = SLUG_TEXT[slug] || "South fricans lose hundreds of rand per year on hidden clauses.";
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
