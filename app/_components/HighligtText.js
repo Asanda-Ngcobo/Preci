@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const SLUG_TEXT = {
   phone: "Your 24/36 months IPhone contract may be longer than that.",
-  housing: "Your may be denied your deposit when you leave.",
+  housing: "You may be denied your deposit when you leave.",
   insurance: "Your family may be denied a claim when you are gone.",
   gym: "Your summer body gym membership can cost you more than what you signed up for.",
   car: "Car Finance Agreement Could Cost You More.",
