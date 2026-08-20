@@ -6,7 +6,7 @@ const SLUG_TEXT = {
   phone: "MTN or Vodacom Contract Could Cost You More.",
   housing: "Lease Agreement Could Cost You More.",
   insurance: "Insurance Policy Could be denied.",
-  gym: "Gym Membership Contract Could Cost You More.",
+  gym: "Your summer body gym membership can cost you more than what you signed up for.",
   car: "Car Finance Agreement Could Cost You More.",
   "credit-score": "Credit Report",
 };
