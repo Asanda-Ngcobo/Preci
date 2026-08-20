@@ -39,9 +39,10 @@ export default function Heading({ data, params }) {
 
       {!data && (
         <h1 className="text-4xl font-bold leading-tight text-(--text-secondary)">
-          Before Your Next Debit Order,
-          <br />
-          Find Out If Your <HighlightText slug={slug} />
+       
+         
+           <HighlightText slug={slug} /> <br />
+        
         </h1>
       )}
 
@@ -52,7 +53,7 @@ export default function Heading({ data, params }) {
         ) : (
           <ContractTypeRotator slug={slug} />
         )}{" "}
-        and Preci will explain the important clauses in plain English in under a minute.
+        Upload the copy of your contract they sent to find out how.
       </p>
 
       <p className="text-sm text-gray-500">
