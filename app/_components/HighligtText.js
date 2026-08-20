@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 
 const SLUG_TEXT = {
-  phone: "MTN or Vodacom Contract Could Cost You More.",
+  phone: "Your 24/36 months Iphone may be longer than that.",
   housing: "Lease Agreement Could Cost You More.",
-  insurance: "Insurance Policy Could be denied.",
+  insurance: "Your family may be denied a claim when you are gone.",
   gym: "Your summer body gym membership can cost you more than what you signed up for.",
   car: "Car Finance Agreement Could Cost You More.",
   "credit-score": "Credit Report",
