@@ -83,7 +83,7 @@ export default function RootLayout({ children }) {
          reverseOrder={false} />
         <MenuProvider>
    
-          <Discount/>
+         {/* <Discount/>  */}
    
          {children}
     
