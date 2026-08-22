@@ -122,7 +122,7 @@ router.push(`/summary/${summaryId}/checkout?token=${token}`);
       {!loadingPrice && !discountActive && !discountClaimed && profile && (
         <Link href={`/users/${summaryId}/referral`} className="w-[60%]">
           <button className="w-full cursor-pointer rounded-xl bg-white hover:opacity-85 py-2 text-black border-2">
-            Claim Your 67% Off
+            Claim Your 50% Off
           </button>
         </Link>
       )}
