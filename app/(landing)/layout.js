@@ -220,7 +220,7 @@ export default async function RootLayout({ children }) {
          reverseOrder={false} />
         <MenuProvider>
           {/* <MobileMenu/> */}
-          <Discount/>
+           {/*<Discount/>  */}
           {!user && <Nav/>}
          {children}
 
