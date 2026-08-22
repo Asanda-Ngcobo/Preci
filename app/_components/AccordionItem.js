@@ -23,10 +23,10 @@ export default function AccordionItem({
             {question}
 
             {index === 2 && (
-              {/*<span className="ml-2 font-semibold text-(--accent-primary)
+              <span className="ml-2 font-semibold text-(--accent-primary)
               text-xs">
-             Free Contract analysis for a limited time!
-              </span> */}
+           
+              </span> 
             )}
           </p>
         </div>
