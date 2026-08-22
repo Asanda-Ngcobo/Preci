@@ -102,12 +102,12 @@ router.push(`/summary/${summaryId}/checkout?token=${token}`);
 
       <div className="mt-4 flex justify-between w-[60%]">
         <span className="text-gray-500">Full Summary</span>
-        <span className="font-medium">
+  {/* <span className="font-medium">
           {displayPrice}
           {discountActive && (
             <span className="ml-2 text-xs text-green-600 font-normal">67% off</span>
           )}
-        </span>
+        </span> */}
       </div>
 
       <button
