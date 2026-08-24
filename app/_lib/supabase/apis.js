@@ -109,7 +109,7 @@ export async function getReviews() {
 
   const { data, error } = await supabase
     .from("onboarding_surveys")
-    .select("*")
+     .select("name, satisfaction, recommendation")
     // .not("name", 'is', null)
     .order("created_at", { ascending: false });
 
