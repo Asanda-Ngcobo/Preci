@@ -104,6 +104,23 @@ export async function getBlogBySlug(slug) {
 }
 
 
+export async function getReviews() {
+  const supabase =  await createClient();
+
+  const { data, error } = await supabase
+    .from("onboarding_surveys")
+    .select("*")
+    // .not("name", 'is', null)
+    .order("created_at", { ascending: false });
+
+ if (error) {
+      console.error("Error fetching reviews:", error);
+      setLoading(false);
+      return;
+    }
+  return data;
+}
+
 
 
 
