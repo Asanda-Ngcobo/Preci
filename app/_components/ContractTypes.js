@@ -21,7 +21,7 @@ export default function ContractTypeRotator({ slug }) {
       // ✅ Use list.length inside the callback — no need to list `list` as a dep
       // since ROTATORS is a module-level constant (stable reference)
       setIndex((prev) => (prev + 1) % list.length);
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(interval);
   // ✅ Depend on list reference, not list.length
