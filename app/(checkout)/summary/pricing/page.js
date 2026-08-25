@@ -11,11 +11,11 @@ const metadata = {
   },
 }
   const pricing = [
-    { words: "~ 1,000 words", price: "R8" },
-    { words: "~ 2,500 words", price: "R20" },
-    { words: "~ 5,000 words", price: "R40" },
-    { words: "~10,000 words", price: "R80" },
-    { words: "~20,000 words", price: "R120" },
+    { words: "~ 1,000 words", price: "R4" },
+    { words: "~ 2,500 words", price: "R10" },
+    { words: "~ 5,000 words", price: "R20" },
+    { words: "~10,000 words", price: "R40" },
+    { words: "~20,000 words", price: "R80" },
   
   ];
 
