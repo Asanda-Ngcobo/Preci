@@ -51,6 +51,10 @@ const preci = [
     link: `/contact-us`,
     name: 'Contact Us'
   },
+    {id : 4,
+    link: `/summary/pricing`,
+    name: 'Pricing'
+  },
 
 ]
 function Footer() {
