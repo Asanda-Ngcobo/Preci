@@ -4,7 +4,16 @@ import { getReviews } from "@/app/_lib/supabase/apis"
 
 
 
+const metadata = {
+  metadataBase: new URL("https://preci.co.za/reviews"),
 
+  title: {
+    default:
+      "Preci | Reviews",
+      
+    template: "%s | Preci",
+  },
+}
 
 
 export default async function ReviewsPage() {
