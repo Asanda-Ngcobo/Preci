@@ -47,7 +47,7 @@ export default function Heading({ data, params }) {
       )}
 
       <p className="max-w-2xl text-lg text-gray-600">
-        Tap the Plus button below to upload you{" "}
+        Tap the Plus button below to upload your{" "}
         {highlight ? (
           <span className="font-medium">{highlight}</span>
         ) : (
