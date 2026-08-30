@@ -1,63 +1,149 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import AccordionItem from './AccordionItem';
-import Loggin from "@/public/Loggin.png"
-import Upload from "@/public/Upload.png"
-import Processing from "@/public/Processing.png"
-import Summary from "@/public/Summary2.png"
-import Payment from "@/public/Phone preview.png"
-const data = [
-  // {
-  //   image: Loggin,
-  //   question: 'Create an account or sign in',
-  //   explanation: 'Sign up or log in using Google (recommended) or your email and password.',
-  //   id: 1,
-  // },
+import { useState } from "react";
+
+const steps = [
   {
-       image: Upload,
-    question: 'Upload your contract or agreement',
-    explanation: 'Upload your document in PDF format for analysis.',
-    id: 2,
+    number: "01",
+    title: "Upload your contract",
+    description:
+      "Upload your PDF or supported contract document.",
   },
-  {   image: Processing,
-    question: 'Get your document summarized',
-    explanation:
-      'Click `Analyze` button to let our AI analyze your document and highlight key clauses, risks, and potential red flags.',
-    id: 3,
+  {
+    number: "02",
+    title: "Get your free preview",
+    description:
+      "Preci analyses your document and generates a preview of your summary.",
   },
-  {   image: Payment,
-    question: 'Unlock Full Summary',
-    explanation:
-      'Unlock full summary by paying the small processing fee (for example, a 1,000-word contract).',
-    id: 4,
+  {
+    number: "03",
+    title: "See your price",
+    description:
+      "Your contract's word count determines the applicable processing fee.",
   },
-  { image: Summary,
-    question: 'Access your summary anytime',
-    explanation:
-      'Review your summary anytime to better understand the agreement before making a commitment.',
-    id: 5,
+  {
+    number: "04",
+    title: "Unlock the full summary",
+    description:
+      "Pay the one-time processing fee to access your complete summary.",
+  },
+  {
+    number: "05",
+    title: "Understand before you agree",
+    description:
+      "Read your contract in plain language and make a more informed decision.",
   },
 ];
-
 
 export default function Accordion() {
   const [curOpen, setCurOpen] = useState(null);
 
+  const handleToggle = (number) => {
+    setCurOpen(curOpen === number ? null : number);
+  };
+
   return (
-    <div className="w-full lg:max-w-[70%] mx-auto my-24 flex flex-col gap-6">
-      {data.map((item, index) => (
-        <AccordionItem
-          key={item.id}
-          index={index}
-          image={item.image}
-          question={item.question}
-          explanation={item.explanation}
-          isOpen={curOpen === index}
-          onToggle={() => setCurOpen(curOpen === index ? null : index)}
-        />
-      ))}
-    </div>
+    <section className="bg-gray-50 px-6 py-20 md:py-24">
+      <div className="mx-auto max-w-5xl">
+
+        {/* Heading */}
+        <div className="mx-auto mb-14 max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            How It Works
+          </h2>
+
+          <p className="mt-4 text-gray-600">
+            From upload to understanding your contract in just a few steps.
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="space-y-4">
+          {steps.map((step) => {
+            const isOpen = curOpen === step.number;
+
+            return (
+              <div
+                key={step.number}
+                className={`
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  bg-white
+                  transition-all duration-300
+                  ${
+                    isOpen
+                      ? "border-(--accent-primary) shadow-md"
+                      : "border-gray-200"
+                  }
+                `}
+              >
+                <button
+                  type="button"
+                  onClick={() => handleToggle(step.number)}
+                  className="flex w-full items-center gap-4 p-5 text-left sm:p-6"
+                  aria-expanded={isOpen}
+                >
+                  {/* Number */}
+                  <div
+                    className={`
+                      flex h-11 w-11 shrink-0
+                      items-center justify-center
+                      rounded-full
+                      text-sm font-bold
+                      transition-colors
+                      ${
+                        isOpen
+                          ? "bg-(--accent-primary) text-white"
+                          : "bg-gray-100 text-gray-700"
+                      }
+                    `}
+                  >
+                    {step.number}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="flex-1 font-semibold text-gray-900">
+                    {step.title}
+                  </h3>
+
+                  {/* Chevron */}
+                  <span
+                    className={`
+                      text-xl text-gray-400
+                      transition-transform duration-300
+                      ${isOpen ? "rotate-180" : ""}
+                    `}
+                  >
+                    ↓
+                  </span>
+                </button>
+
+                {/* Content */}
+                <div
+                  className={`
+                    grid transition-all duration-300
+                    ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }
+                  `}
+                >
+                  <div className="overflow-hidden">
+                    <div className="border-t border-gray-100 px-5 pb-6 pt-4 pl-[76px] sm:px-6 sm:pl-[82px]">
+                      <p className="text-sm leading-6 text-gray-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
   );
 }
-
