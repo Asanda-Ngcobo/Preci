@@ -24,34 +24,12 @@ function MeetPreci() {
        
         </div>
        
-        {/* Video Embed */}
-        {/* <div className="mt-10 flex justify-center">
-          <div className="w-full max-w-full rounded-2xl
-           overflow-hidden shadow-lg ">
-            <iframe
-              src="https://scribehow.com/embed/How_to_Upload_and_Summarize_Contracts_Using_Preci__3tblTxR5STSPR7o581n1Rg"
-              className="w-full h-150"
-              allow="encrypted-media"
-              allowFullScreen
-            />
-          </div>
-        </div>
-        */}
-        {/* How it works */}
-        <div className="">
-          <h2 className="mb-4 text-center text-2xl md:text-3xl font-semibold text-gray-800">
-            How it works
-          </h2>
+   
+      
+         
 
-          <div className="flex flex-col  gap-10 md:gap-8">
+          <div className="flex flex-col  gap-5 md:gap-8">
         
-            <div className=" w-full flex justify-center items-center">
-              {/* <div className="w-full md:w-[90%] rounded-md
-               shadow-lg overflow-hidden">
-                <Video />
-              </div> */}
-            </div> 
-
             <div className=" w-full flex flex-col justify-center">
               <div className=" py-6">
                 <Accordion />
@@ -59,7 +37,7 @@ function MeetPreci() {
             </div>
           </div>
         </div>
-      </div>
+  
       {/* <Testimonials/> */}
     </section>
   );
