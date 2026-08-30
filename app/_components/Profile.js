@@ -1,36 +1,43 @@
 'use client'
 
-import { LogOut, Settings } from '@deemlol/next-icons'
+import { LogOut } from '@deemlol/next-icons'
 import Image from 'next/image'
 import { useState, useTransition } from 'react'
 import { createClient } from '@/app/_lib/supabase/client'
 import { useRouter } from 'next/navigation'
+
+function formatFromEmail(email) {
+  if (!email) return null
+  return email
+    .split('@')[0]
+    .replace(/[._]/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+}
 
 function Profile({ data }) {
   const [showProfile, setShowProfile] = useState(false)
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
 
-  if(!data) return null
-  const { full_name, name, avatar_url, email } = data.user_metadata ?? {};
-  
+  if (!data) return null
 
-  function handleShowProfile() {
-    setShowProfile(prev => !prev)
+  const { full_name, name, avatar_url, email } = data.user_metadata ?? {}
+
+  // Previously this was `full_name || name ? full_name || name.split('@')...`
+  // — operator precedence made `.split` bind only to `name`, so it silently
+  // broke whenever `name` was undefined or didn't contain "@". This is the
+  // intended fallback chain: full_name -> name -> formatted email -> "User".
+  const displayName = full_name || name || formatFromEmail(email) || 'User'
+
+  const initials = displayName
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join('')
+
+  function toggleProfile() {
+    setShowProfile((prev) => !prev)
   }
-
-  const Name = full_name || name
-    ? full_name || name
-        .split('@')[0]
-        .replace(/[._]/g, ' ')
-        .replace(/\b\w/g, c => c.toUpperCase())
-    : 'User'
-
-    const initials = Name
-  .split(/\s+/)
-  .slice(0, 2)
-  .map(word => word[0]?.toUpperCase())
-  .join('');
 
   const logout = () => {
     startTransition(async () => {
@@ -40,75 +47,69 @@ function Profile({ data }) {
     })
   }
 
+  const Avatar = ({ size = 40 }) =>
+    avatar_url ? (
+      <Image
+        src={avatar_url}
+        alt=""
+        width={size}
+        height={size}
+        className="rounded-full"
+      />
+    ) : (
+      <div
+        className="bg-(--accent-primary) rounded-full flex justify-center items-center text-white text-sm font-medium shrink-0"
+        style={{ width: size, height: size }}
+      >
+        {initials}
+      </div>
+    )
+
   return (
     <>
       {showProfile && (
-        <div className="backdrop-blur-md fixed
-          w-full h-screen flex justify-center items-center mx-auto rounded-lg z-20 "
-               onClick={handleShowProfile}>
-          <div className="flex flex-col gap-3 
-          bg-background shadow-2xl shadow-gray-500 ml-2 items-center justify-center
-          w-[60%] md:w-[30%] h-fit rounded-2xl">
-            {avatar_url ? <Image
-  src={avatar_url}
-  alt="user image"
-  width={40}
-  height={40}
-  className="rounded-full -mt-3"
- 
-/> : (
-  <div className='w-10 h-10 bg-(--accent-primary) rounded-full
-  flex justify-center items-center'>
-    {initials}
-  </div>
-)}
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm flex justify-center items-center z-40"
+          onClick={toggleProfile}
+          role="presentation"
+        >
+          <div
+            className="flex flex-col gap-3 bg-white shadow-2xl items-center justify-center
+              w-[85%] max-w-xs p-6 rounded-2xl"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <Avatar size={48} />
 
-            <div>
-              <div>{name}</div>
-              <div className="text-xs w-full">{email}</div>
+            <div className="text-center">
+              <div className="font-medium text-gray-900">{displayName}</div>
+              {email && <div className="text-xs text-(--text-secondary)">{email}</div>}
             </div>
-               <ul className='w-full   flex justify-center items-center'>
-            {/* <li className="flex ml-2 gap-5 py-3">
-              <Settings /> Settings
-            </li> */}
 
-            <li
+            <button
+              type="button"
               onClick={!isPending ? logout : undefined}
-              className={`flex mx-10 gap-5 py-3 hover:text-gray-500 ${
-                isPending ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
-              }`}
+              disabled={isPending}
+              className={`flex items-center gap-2 py-2 px-4 rounded-md w-full justify-center
+                hover:bg-gray-100 transition-colors
+                ${isPending ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
             >
-              <LogOut />
+              <LogOut size={18} />
               {isPending ? 'Logging out…' : 'Log out'}
-            </li>
-          </ul>
+            </button>
           </div>
-
-       
         </div>
       )}
 
-      <div
-        className={`${showProfile ? 'w-[90%] ' : 'w-[94%]'} h-[10vh] mx-auto mb-5
-          rounded-md bg-background flex gap-3 justify-center items-center cursor-pointer`}
-        onClick={handleShowProfile}
+      <button
+        type="button"
+        onClick={toggleProfile}
+        className="w-full py-3 px-4 flex gap-3 items-center hover:bg-gray-50 transition-colors"
       >
-    {avatar_url ? <Image
-  src={avatar_url}
-  alt="user image"
-  width={40}
-  height={40}
-  className="rounded-full"
- 
-/> : (
-  <div className='w-10 h-10 bg-(--accent-primary) rounded-full
-  flex justify-center items-center'>
-    {initials}
-  </div>
-)}
-
-        <div>{Name}</div>
-      </div>
+        <Avatar />
+        <span className="text-sm font-medium text-gray-800 truncate">{displayName}</span>
+      </button>
     </>
   )
 }
