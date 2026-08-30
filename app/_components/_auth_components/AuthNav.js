@@ -25,9 +25,7 @@ function Nav() {
   {/*<li className="hover:underline w-fit h-fit p-2 rounded-2xl active:underline">
           <Link href='/summary/pricing'>Pricing</Link>
         </li> */}
-    <li className="hover:underline w-fit h-fit p-2 rounded-2xl active:underline">
-          <Link href='/reviews'>Reviews</Link>
-        </li>
+   
     
         <li className="hover:bg-gray-300 w-fit h-fit py-1 px-2 rounded-xl">
           <Link href='/auth/login' className="flex gap-2 justify-center items-center h-fit w-fit"><User width={15}/>Login</Link>
