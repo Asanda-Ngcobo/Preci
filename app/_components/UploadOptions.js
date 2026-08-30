@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { Upload, FileText, X } from "@deemlol/next-icons";
 import { useMenu } from "../providers/MenuProvider";
 
-function UploadOptions({handleProcess}) {
+function UploadOptions({handleProcess, handleUpload}) {
  const {file, setFile} = useMenu();
   const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef(null);
@@ -35,7 +35,9 @@ function UploadOptions({handleProcess}) {
 
   return (
     <>
-    <div className="w-full min-h-screen flex flex-col gap-8 justify-center items-center backdrop-blur-2xl fixed z-20 top-0 left-0">
+    <div className="w-full min-h-screen flex flex-col gap-8 justify-center 
+    items-center backdrop-blur-2xl fixed z-20 top-0 left-0"
+    onClick={handleUpload}>
     {!file && <div className="w-40 -mx-5 max-w-sm absolute -mt-45 z-30">
       <div
         onClick={() => inputRef.current.click()}
