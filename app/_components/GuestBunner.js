@@ -44,7 +44,7 @@ export default function GuestBanner({
 
       <div className="flex flex-col gap-3">
 
-        <div>
+         <div>
           <h2 className="font-semibold text-yellow-900 text-center">
             You're viewing this summary as a guest
           </h2>
@@ -53,10 +53,10 @@ export default function GuestBanner({
             Your summary hasn't been saved to an account yet.
             <span className="text-(--accent-secondary) font-bold">{" "}Create a free account</span>{" "}
              to keep it permanently and access it
-            from any device, anytime.
-            
+            from any device, anytime
+            & {!unpaid ? <span className='text-(--accent-secondary) font-bold'>& claim 50% on your next upload this month </span>: <span className="text-(--accent-secondary) font-bold">& claim your 50% discount.</span>}
           </p>
-          {unpaid && <p className="text-sm text-yellow-800 mt-1 text-center">Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
+          {unpaid && <p className="text-sm text-yellow-800 mt-1 text-center">. Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
           to unlock your full summary, you'll pay <span className="text-(--accent-secondary) font-bold"> R{discount.toFixed(2)}</span>
               </p>}
         </div>
