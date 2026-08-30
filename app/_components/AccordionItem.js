@@ -25,8 +25,8 @@ export default function AccordionItem({
             {index === 2 && (
               <span className="ml-2 font-semibold text-(--accent-primary)
               text-xs">
-           
-              </span> 
+                (50% off your first contract)
+              </span>
             )}
           </p>
         </div>
