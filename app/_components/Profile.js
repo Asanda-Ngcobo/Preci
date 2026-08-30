@@ -43,14 +43,18 @@ function Profile({ data }) {
   return (
     <>
       {showProfile && (
-        <div className="bg-background w-[96%] mx-auto rounded-lg mb-4 z-20">
-          <div className="flex gap-3 ml-2 items-center h-[10vh]">
+        <div className="backdrop-blur-md fixed
+          w-full h-screen flex justify-center items-center mx-auto rounded-lg z-20 "
+               onClick={handleShowProfile}>
+          <div className="flex flex-col gap-3 
+          bg-background shadow-2xl shadow-gray-500 ml-2 items-center justify-center
+          w-[60%] md:w-[30%] h-fit rounded-2xl">
             {avatar_url ? <Image
   src={avatar_url}
   alt="user image"
   width={40}
   height={40}
-  className="rounded-full"
+  className="rounded-full -mt-3"
  
 /> : (
   <div className='w-10 h-10 bg-(--accent-primary) rounded-full
@@ -63,16 +67,14 @@ function Profile({ data }) {
               <div>{name}</div>
               <div className="text-xs w-full">{email}</div>
             </div>
-          </div>
-
-          <ul>
+               <ul className='w-full   flex justify-center items-center'>
             {/* <li className="flex ml-2 gap-5 py-3">
               <Settings /> Settings
             </li> */}
 
             <li
               onClick={!isPending ? logout : undefined}
-              className={`flex ml-2 gap-5 py-3 ${
+              className={`flex mx-10 gap-5 py-3 hover:text-gray-500 ${
                 isPending ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
               }`}
             >
@@ -80,11 +82,14 @@ function Profile({ data }) {
               {isPending ? 'Logging out…' : 'Log out'}
             </li>
           </ul>
+          </div>
+
+       
         </div>
       )}
 
       <div
-        className={`${showProfile ? 'w-[90%] ' : 'w-[94%]'} h-[10vh] mx-auto
+        className={`${showProfile ? 'w-[90%] ' : 'w-[94%]'} h-[10vh] mx-auto mb-5
           rounded-md bg-background flex gap-3 justify-center items-center cursor-pointer`}
         onClick={handleShowProfile}
       >
