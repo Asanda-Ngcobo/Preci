@@ -4,7 +4,9 @@ import { createClient } from "../_lib/supabase/server";
 import SideBar from "../_components/SideBar";
 import Main from "../_components/Main";
 import SearchView from "../_components/SearchView";
-import { getSummaries } from "../_lib/supabase/apis";
+import { getReviews, getSummaries } from "../_lib/supabase/apis";
+import OnboardingCards from "../_components/OnBoardingCards";
+
 
 
 export const metadata = {
@@ -136,6 +138,7 @@ const mysummaries = user
   ? await getSummaries(user.id)
   : [];
 
+   const reviews = await getReviews()
 return (
   <div className="flex"
   >
@@ -165,8 +168,10 @@ return (
   }}
 />
     {user ? <SideBar data={user ?? null} userSummaries={mysummaries} />: ''}
-    <Main data={user ?? null} />
+    {/* <Main data={user ?? null} /> */}
+    <OnboardingCards reviews={reviews} data={user}/>
     <SearchView />
+    
   </div>
 );
 }
