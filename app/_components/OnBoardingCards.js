@@ -150,7 +150,8 @@ router.push(
   return (
     <main className="min-h-screen w-full flex flex-col justify-center items-center bg-[#F8F8F8] px-4 py-10">
             {open && <UploadOptions remove={handleUpload}
-            handleProcess={handleProcess}/>}
+            handleProcess={handleProcess}/>
+                handleUpload={handleUpload}/>}
       <div className="md:w-[70%] mx-auto mb-10 ">
 
         {/* Greeting */}
