@@ -105,7 +105,7 @@ function Profile({ data }) {
       <button
         type="button"
         onClick={toggleProfile}
-        className="w-full py-3 px-4 flex gap-3 items-center hover:bg-gray-50 transition-colors"
+        className="w-full py-3 px-4 flex bottom-2 border-b border-gray-600 gap-3 items-center hover:bg-gray-50 transition-colors"
       >
         <Avatar />
         <span className="text-sm font-medium text-gray-800 truncate">{displayName}</span>
