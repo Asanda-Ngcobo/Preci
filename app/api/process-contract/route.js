@@ -428,7 +428,7 @@ const guestToken = user
 
     full_summary: fullSummary,
 
-    paid: true,
+    paid: false,
 
     price_zar: price,
     tokens_used: tokens
