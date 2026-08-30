@@ -56,7 +56,7 @@ export default function GuestBanner({
             from any device, anytime
             {!unpaid ? <span className='text-(--accent-secondary) font-bold'>{" "}& claim 50% on your next upload this month </span>: <span className="text-(--accent-secondary) font-bold">& claim your 50% discount.</span>}
           </p>
-          {unpaid && <p className="text-sm text-yellow-800 mt-1 text-center">. Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
+          {unpaid && <p className="text-sm text-yellow-800 mt-1 text-center">Instead of paying <span className="text-(--accent-secondary) font-bold">R{price}</span> {" "}
           to unlock your full summary, you'll pay <span className="text-(--accent-secondary) font-bold"> R{discount.toFixed(2)}</span>
               </p>}
         </div>
