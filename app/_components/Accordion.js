@@ -6,7 +6,7 @@ import Loggin from "@/public/Loggin.png"
 import Upload from "@/public/Upload.png"
 import Processing from "@/public/Processing.png"
 import Summary from "@/public/Summary2.png"
-import Payment from "@/public/Payment.png"
+import Payment from "@/public/Phone preview.png"
 const data = [
   // {
   //   image: Loggin,
