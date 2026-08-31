@@ -164,12 +164,15 @@ router.push(
         {/* Heading */}
         <div className="mb-10">
           <h1 className="text-4xl font-light text-black">
-            Which contract are we analyzing today?
+            Which contract are we analyzing & summarizing today?
           </h1>
 
           <p className="text-gray-500 mt-3 text-lg">
             Choose from the options below.
           </p>
+           <p className="text-xs text-gray-500">
+        🔒 Your contract is encrypted during processing and only you can access your summary.
+      </p>
         </div>
 {/* Cards */}
 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 w-full gap-5">
