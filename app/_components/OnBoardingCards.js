@@ -17,15 +17,7 @@ import MeetPreci from "./_auth_components/MeetPreci";
 
 
 const onboardingCards = [
-  {
-    title: "Gym Membership Contract",
-    emoji: "🏋🏻‍♀️",
-    description: "Your summer body gym membership can cost you more than what you signed up for.",
-    subheading: `Upload your contract to find out if that can happen to you & how you can prevent it.`,
-     image: Gym,
-     buttontext: 'Upload Contract'
-  },
-  {
+    {
     title: "Phone Contract",
     emoji: "📱",
     description: "Your 24/36 months IPhone contract may be longer than that.",
@@ -33,6 +25,16 @@ const onboardingCards = [
     image: IPhone,
     buttontext: 'Upload Contract'
   },
+  {
+    
+    title: "Gym Membership Contract",
+    emoji: "🏋🏻‍♀️",
+    description: "Your summer body gym membership can cost you more than what you signed up for.",
+    subheading: `Upload your contract to find out if that can happen to you & how you can prevent it.`,
+     image: Gym,
+     buttontext: 'Upload Contract'
+  },
+
   {
     title: "WiFi",
     emoji: "🛜",
